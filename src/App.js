@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <RestaurantContainer/>
-      <TimeAndDatePickedComponent/>
+      {/* <TimeAndDatePickedComponent/>
       <TableListComponent/>
       <TableComponent/>
       <RestaurantProfileComponent/>
@@ -24,7 +24,7 @@ function App() {
       <CustomerComponent/>
       <ConfirmationComponent/>
       <BookingFormComponent/>
-      <BookingComponent/>
+      <BookingComponent/> */}
       
     
     </>
