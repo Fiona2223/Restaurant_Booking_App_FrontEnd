@@ -4,7 +4,9 @@ import CustomerComponent from "../components/CustomerComponent";
 const CUSTOMER_SERVER_URL = "http://localhost:8080/customer";
 
 const RestaurantContainer = () => {
-    const [customers, setCustomers] = useState({});
+    const [customers, setCustomers] = useState([]);
+    const [currentCustomer, setCurrentCustomer] = useState({});
+
 
 
     const getCustomer = async () => {
@@ -13,14 +15,18 @@ const RestaurantContainer = () => {
             headers:{"Content-Type": "application/json"} 
         })
         const allCustomers = await response.json();
-        const currentCustomer = allCustomers[0];
-        setCustomers(currentCustomer);
+        setCustomers(allCustomers);
+        console.log(allCustomers);
+        setCurrentCustomer(allCustomers[0]);
     }
 
+    useEffect(() => {
+        getCustomer()
+    }, [])
     return ( <>
     
             <h1>Hello From RestaurantContainer</h1>
-            <CustomerComponent customer={customers}/>
+            <CustomerComponent currentCustomer={currentCustomer}/>
     </> );
 }
  

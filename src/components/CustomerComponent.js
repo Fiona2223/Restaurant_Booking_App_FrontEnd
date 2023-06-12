@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 
 const CUSTOMER_SERVER_URL = "http://localhost:8080/customer";
 
-const CustomerComponent = ({customer}) => {
+const CustomerComponent = ({currentCustomer}) => {
 
     // container
     // const [customers, setCustomers] = useState({});
@@ -20,16 +20,23 @@ const CustomerComponent = ({customer}) => {
     //     setCustomers(currentCustomer);
     // }
 
-    const getCustomerLocation = async (customerId) => {
-        const response = await fetch (`${CUSTOMER_SERVER_URL}/${customer.customerId}/location`,{
-            method: "GET",
-            headers:{"Content-Type": "application/json"}
-        })
-        const customerLocationData = await response.json();
-        setCustomerLocation(customerLocationData);
+    // const getCustomerLocation = async (currentCustomer) => {
+    //     const response = await fetch (`${CUSTOMER_SERVER_URL}/{currentCustomer.id}/location`,{
+    //         method: "GET",
+    //         headers:{"Content-Type": "application/json"}
+    //     })
+    //     const customerLocationData = await response.json();
+    //     setCustomerLocation(customerLocationData);
+    // }
+
+    const getCustomerLocation = async () => {
+        const response = await fetch(`${CUSTOMER_SERVER_URL}/${currentCustomer.id}`);
+        const data = await response.json();
+        setCustomerLocation(data.location);
     }
+
     const addCustomerLocation = async (newLocation) => {
-        const response = await fetch (`${CUSTOMER_SERVER_URL}/${customer.customerId}/location/edit`, {
+        const response = await fetch (`${CUSTOMER_SERVER_URL}/${currentCustomer.id}/location/edit`, {
             method : "PATCH",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify({location: newLocation}),
@@ -41,7 +48,6 @@ const CustomerComponent = ({customer}) => {
 
 //     const handleFormSubmit = (event) => {
 //     event.preventDefault();
-//     customer()
 //   };
 
     const handleLocationChange = (event) => {
@@ -49,11 +55,15 @@ const CustomerComponent = ({customer}) => {
     };
 
     useEffect(() => {
-        getCustomerLocation()
-    }, [])
+        if(currentCustomer && currentCustomer.id){
+            getCustomerLocation()
+            addCustomerLocation()
+        }
+    }, [currentCustomer])
+    
     return ( <>
-            <h2>Hello CustomerComponent</h2>
-            <form >
+            <h2>Hello from CustomerComponent</h2>
+            <form>
                 <input 
                 type="text"
                 name="customerLocation"
