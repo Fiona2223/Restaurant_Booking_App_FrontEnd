@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CustomerComponent from "../components/CustomerComponent";
-import RestaurantProfileComponent from "../components/RestaurantProfileComponent";
+import RestaurantProfileListComponent from "../components/RestaurantProfileListComponent";
 import { useEffect } from "react";
 
 const RestaurantContainer = () => {
@@ -20,7 +20,8 @@ const RestaurantContainer = () => {
     return ( <>
             <h1>Nearby Restaurants</h1>
             <CustomerComponent />
-            <RestaurantProfileComponent />
+            <RestaurantProfileListComponent listOfRestaurants = {listOfRestaurants} />
+            
     </> );
 }
  
