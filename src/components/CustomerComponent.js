@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 
 const CUSTOMER_SERVER_URL = "http://localhost:8080/customer";
 
-const CustomerComponent = ({currentCustomer}) => {
+const CustomerComponent = ({currentCustomer, setCurrentCustomer}) => {
 
     // container
     // const [customers, setCustomers] = useState({});
@@ -42,7 +42,7 @@ const CustomerComponent = ({currentCustomer}) => {
             body: JSON.stringify({location: newLocation}),
         })
         const newCustomerLocation = await response.json();
-        setCustomerLocation(newCustomerLocation); 
+        setCurrentCustomer(newCustomerLocation);
     
     }
 
@@ -51,7 +51,8 @@ const CustomerComponent = ({currentCustomer}) => {
 //   };
 
     const handleLocationChange = (event) => {
-    setCustomerLocation(event.target.value);
+        currentCustomer.location = event.target.value;
+        setCurrentCustomer(currentCustomer);
     };
 
     useEffect(() => {
@@ -66,9 +67,9 @@ const CustomerComponent = ({currentCustomer}) => {
             <form>
                 <input 
                 type="text"
-                name="customerLocation"
+                // name="currentCustomer.location"
                 placeholder="Enter your current location"
-                value ={customerLocation}
+                // value ={currentCustomer.location}
                 onChange={handleLocationChange}
                 />
                 <button type="submit"> Enter</button>
