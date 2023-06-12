@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+
 import './App.css';
+import BookingComponent from './components/BookingComponent';
+import BookingFormComponent from './components/BookingFormComponent';
+import ConfirmationComponent from './components/ConfirmationComponent';
+import CustomerComponent from './components/CustomerComponent';
+import RestaurantProfileComponent from './components/RestaurantProfileComponent';
+import TableComponent from './components/TableComponent';
+import PickTableComponent from './components/TableComponent';
+import TableListComponent from './components/TableListComponent';
+import TimeAndDatePickedComponent from './components/TimeAndDatePickedComponent';
+import RestaurantContainer from './containers/RestaurantContainer';
+ 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <RestaurantContainer/>
+      <TimeAndDatePickedComponent/>
+      <TableListComponent/>
+      <TableComponent/>
+      <RestaurantProfileComponent/>
+      <PickTableComponent/>
+      <CustomerComponent/>
+      <ConfirmationComponent/>
+      <BookingFormComponent/>
+      <BookingComponent/>
+      
+    
+    </>
   );
 }
 
