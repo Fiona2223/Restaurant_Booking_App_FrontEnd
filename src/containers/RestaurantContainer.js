@@ -1,11 +1,13 @@
 import {useState, useEffect} from "react";
 import CustomerComponent from "../components/CustomerComponent";
+import RestaurantProfileListComponent from "../components/RestaurantProfileListComponent";
 
 const CUSTOMER_SERVER_URL = "http://localhost:8080/customer";
 
 const RestaurantContainer = () => {
     const [customers, setCustomers] = useState([]);
     const [currentCustomer, setCurrentCustomer] = useState({});
+    const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
 
 
@@ -22,12 +24,21 @@ const RestaurantContainer = () => {
 
     useEffect(() => {
         getCustomer()
-    }, [])
-    return ( <>
-    
-            <h1>Hello From RestaurantContainer</h1>
-            <CustomerComponent currentCustomer={currentCustomer}/>
-    </> );
+        const fetchRestaurants = async () => {
+            const response = await fetch("http://localhost:8080/restaurants");
+            const data = await response.json();
+            setListOfRestaurants(data);
+        }
+        fetchRestaurants();      
+      }, [])
+  
+    return ( 
+            <>
+              <h1>Nearby Restaurants</h1>
+              <RestaurantProfileListComponent listOfRestaurants = {listOfRestaurants} />           
+              <CustomerComponent currentCustomer={currentCustomer}/>
+            </>
+            )
 }
  
 export default RestaurantContainer;

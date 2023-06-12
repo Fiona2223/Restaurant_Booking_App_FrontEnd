@@ -1,6 +1,7 @@
-const RestaurantProfileComponent = () => {
+const RestaurantProfileComponent = ({restaurant}) => {
     return ( <>
-            <h2> Hello RestaurantProfileComponent</h2>
+            <h2> {restaurant.name}</h2>
+            <p> {restaurant.location}</p>
     </> );
 }
  
