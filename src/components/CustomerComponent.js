@@ -33,46 +33,52 @@ const CustomerComponent = ({currentCustomer, setCurrentCustomer}) => {
         const response = await fetch(`${CUSTOMER_SERVER_URL}/${currentCustomer.id}`);
         const data = await response.json();
         setCustomerLocation(data.location);
+        console.log(data.location);
     }
 
     const addCustomerLocation = async (newLocation) => {
         const response = await fetch (`${CUSTOMER_SERVER_URL}/${currentCustomer.id}/location/edit`, {
             method : "PATCH",
             headers: {"Content-Type" : "application/json"},
-            body: JSON.stringify({location: newLocation}),
+            body: newLocation
         })
-        const newCustomerLocation = await response.json();
-        setCurrentCustomer(newCustomerLocation);
+        const updatedCustomer = await response.json();
+        console.log(updatedCustomer);
+        setCurrentCustomer({...currentCustomer, location : updatedCustomer.location});
+        setCustomerLocation("");
     
     }
 
-//     const handleFormSubmit = (event) => {
-//     event.preventDefault();
-//   };
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        addCustomerLocation(customerLocation);
+    };
 
     const handleLocationChange = (event) => {
-        currentCustomer.location = event.target.value;
-        setCurrentCustomer(currentCustomer);
+        const location = event.target.value;
+        setCustomerLocation(location);
+        // setCurrentCustomer(currentCustomer);
     };
 
     useEffect(() => {
         if(currentCustomer && currentCustomer.id){
             getCustomerLocation()
-            addCustomerLocation()
+            // addCustomerLocation()
         }
-    }, [currentCustomer])
+
+    }, [])
     
     return ( <>
             <h2>Hello from CustomerComponent</h2>
             <form>
                 <input 
                 type="text"
-                // name="currentCustomer.location"
+                name="customerLocation"
                 placeholder="Enter your current location"
-                // value ={currentCustomer.location}
+                value ={customerLocation}
                 onChange={handleLocationChange}
                 />
-                <button type="submit"> Enter</button>
+                <button type="submit" onClick={handleFormSubmit}>Enter</button>
 
             </form>
     </> );
