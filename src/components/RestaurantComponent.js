@@ -1,12 +1,13 @@
 import { useLoaderData } from "react-router-dom";
+import BookingFormComponent from "./BookingFormComponent";
 
 const RestaurantComponent = ({}) => {
 
     const restaurant = useLoaderData();
 
     return ( <>
-            <h3> Hello Component </h3>
-            <p>{restaurant.name}</p>
+            <h2>{restaurant.name}</h2>
+            <BookingFormComponent restaurant={restaurant}/>
             
     </> );
 }
