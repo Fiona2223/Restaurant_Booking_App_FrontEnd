@@ -40,22 +40,12 @@ const router = createBrowserRouter([
     },
     {
       path:"confirmation",
-      // loader: async() => {
-      //   const response = await fetch(`${SERVER_URL}/customer/1/bookings`);
-      //   const data = await response.json();
-      //   return data;
-      // },
       element: (
         <ConfirmationContainer/>
       ),
     },
     {
       path: "wallet",
-      // loader: async({params}) => {
-      //   const response = await fetch(`${SERVER_URL}/customer/${params.customerId}/bookings`);
-      //   const data = await response.json();
-      //   return data;
-      // },
       element: (
         <WalletContainer/>
       )

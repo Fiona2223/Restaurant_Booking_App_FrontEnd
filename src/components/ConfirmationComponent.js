@@ -24,7 +24,6 @@ const ConfirmationComponent = ({customer, setCustomerBooking, customerBooking}) 
     }
     const handleClick = (event)  => {
         navigateToWallet();
-
     }
 
     return ( <>
@@ -33,5 +32,5 @@ const ConfirmationComponent = ({customer, setCustomerBooking, customerBooking}) 
             <button onClick={handleClick}> See all your bookings</button>    
     </> );
 }
- 
+
 export default ConfirmationComponent;
