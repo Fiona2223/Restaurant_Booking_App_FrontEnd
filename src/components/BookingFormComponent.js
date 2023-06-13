@@ -71,7 +71,7 @@ const BookingFormComponent = ({restaurant}) => {
                 <TableListComponent tableList={tableList} allAvailableTables={allAvailableTables} showAllTables={showAllTables}/>
             </div> */}
             <div>
-                {showPickTableComponent ? <PickTableComponent /> :  <div>
+                {showPickTableComponent ? <PickTableComponent allAvailableTables={allAvailableTables} /> :  <div>
                 <TableListComponent tableList={tableList} allAvailableTables={allAvailableTables} showAllTables={showAllTables}/></div> 
                 }
             <button onClick={handleMakeReservation}>Make Reservation</button>
