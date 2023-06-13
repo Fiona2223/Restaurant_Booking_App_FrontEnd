@@ -23,9 +23,9 @@ const router = createBrowserRouter([
   }, 
     {
       path:"restaurants/:restaurantId", 
-      loader: async() => {
-        return fetch(`${SERVER_URL}/${restaurantId}.json`);
-      },
+      // loader: async() => {
+      //   return fetch(`${SERVER_URL}/${restaurantId}.json`);
+      // },
       element: (
         <RestaurantComponent/>
       ),
