@@ -13,7 +13,7 @@ import TimeAndDatePickedComponent from './components/TimeAndDatePickedComponent'
 import RestaurantContainer from './containers/RestaurantContainer';
 import RestaurantComponent from './components/RestaurantComponent';
 
-
+const SERVER_URL = "http://localhost:8080";
 const router = createBrowserRouter([
   {
     path:"/",
@@ -31,14 +31,19 @@ const router = createBrowserRouter([
     {
       path:"bookings",
       element: (
-        <ConfirmationComponent/>
+        <CustomerComponent/>
       ),
     },
 
     {
-      path: "customer",
+      path: "customer/1/bookings/:bookingId",
+      loader: async({params}) => {
+        const response = await fetch(`${SERVER_URL}/customer/1/bookings/${params.bookingId}`);
+        const data = await response.json();
+        return data;
+      },
       element: (
-        <CustomerComponent/>
+        <ConfirmationComponent />
       ),
     },
 

@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import ConfirmationComponent from "../components/ConfirmationComponent";
 import CustomerComponent from "../components/CustomerComponent";
 import RestaurantProfileListComponent from "../components/RestaurantProfileListComponent";
 
@@ -36,7 +37,7 @@ const RestaurantContainer = () => {
             <>
               <h1>Nearby Restaurants</h1>
               <CustomerComponent currentCustomer={currentCustomer} setCurrentCustomer={setCurrentCustomer}/>
-              <RestaurantProfileListComponent listOfRestaurants = {listOfRestaurants} />           
+              <RestaurantProfileListComponent listOfRestaurants = {listOfRestaurants} />       
              
             </>
             )
