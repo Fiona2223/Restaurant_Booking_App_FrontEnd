@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 const RestaurantProfileComponent = ({restaurant}) => {
@@ -10,11 +11,11 @@ const RestaurantProfileComponent = ({restaurant}) => {
      ,[restaurant])
 
 
-
-
     return ( <>
-            <h2> {restaurant.name}</h2>
+
+            <Link to={`/restaurants/${restaurant.id}`} > {restaurant.name}</Link>
             <p> {restaurant.location}</p>
+      
     </> );
 }
  

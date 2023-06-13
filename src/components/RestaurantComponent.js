@@ -1,7 +1,14 @@
-const RestaurantComponent = () => {
+import { useState } from "react";
+
+const RestaurantComponent = ({restaurant}) => {
+// const [currentRestaurant, setCurrentRestaurant] = useState({});
+// export const restaurantLoader = async() => {
+//     const response = await fetch 
+// }
     return ( <>
-            <h2>Hello Restaurant Component</h2>
-    
+            <h3> Hello Component </h3>
+            <h2>{restaurant.id}</h2>
+
     </> );
 }
  
