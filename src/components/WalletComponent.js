@@ -1,8 +1,8 @@
-const WalletComponent = ({customer}) => {
+const WalletComponent = ({customerBookings, booking}) => {
+    // console.log(customerBookings);
     return (  
         <>
-        <h1>This is the WalletComponent</h1>
-        <>{customer}</>
+            <p>{booking.customerName}, {booking.id}</p>
         </>
     );
 }

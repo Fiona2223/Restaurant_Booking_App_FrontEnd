@@ -11,7 +11,7 @@ const ConfirmationComponent = ({customer, setCustomerBooking, customerBooking}) 
     
     let navigate = useNavigate()
     const navigateToWallet = () => {
-        let path = `/customer/1/bookings/`;
+        let path = `/wallet`;
         navigate(path);
         setDisplayButton(true);   
         // navigate to another react router 
@@ -30,14 +30,7 @@ const ConfirmationComponent = ({customer, setCustomerBooking, customerBooking}) 
     return ( <>
             <h2>Hello ConfirmationComponent</h2>
 
-            <Link to ={`/customer`} />
-            {/* // <p>Hi {customer.name} !</p>
-            // <p>You have reserved tables {customer.tableIds}</p>
-            // <p>You have booked {customer.restaurantId}</p> */}
-            <button onClick={handleClick}> See all your bookings</button>
-
-            
-            
+            <button onClick={handleClick}> See all your bookings</button>    
     </> );
 }
  
