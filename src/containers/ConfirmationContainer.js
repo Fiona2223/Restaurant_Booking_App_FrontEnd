@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ConfirmationComponent from "../components/ConfirmationComponent";
+import WalletComponent from "../components/WalletComponent";
 
 const CUSTOMER_BOOKINGS_SERVER_URL = "http://localhost:8080/customer/1/bookings";
 
@@ -35,7 +36,7 @@ const ConfirmationContainer = () => {
     return ( <>
             {customerBookingComponent}
             <ConfirmationComponent setCustomerBooking={setCustomerBooking} customerBooking={customerBooking}/>
-            
+            <WalletComponent/>
     
 
     </> );

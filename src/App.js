@@ -12,6 +12,7 @@ import TableListComponent from './components/TableListComponent';
 import TimeAndDatePickedComponent from './components/TimeAndDatePickedComponent';
 import RestaurantContainer from './containers/RestaurantContainer';
 import RestaurantComponent from './components/RestaurantComponent';
+import WalletComponent from './components/WalletComponent';
 
 const SERVER_URL = "http://localhost:8080";
 const router = createBrowserRouter([
@@ -34,16 +35,26 @@ const router = createBrowserRouter([
         <CustomerComponent/>
       ),
     },
-
     {
-      path: "customer/1/bookings/:bookingId",
-      loader: async({params}) => {
-        const response = await fetch(`${SERVER_URL}/customer/1/bookings/${params.bookingId}`);
+      path:"customer",
+      // loader: async() => {
+      //   const response = await fetch(`${SERVER_URL}/customer/1/bookings`);
+      //   const data = await response.json();
+      //   return data;
+      // },
+      element: (
+        <ConfirmationComponent/>
+      ),
+    },
+    {
+      path: "customer/1/bookings",
+      loader: async() => {
+        const response = await fetch(`${SERVER_URL}/customer/1/bookings`);
         const data = await response.json();
         return data;
       },
       element: (
-        <ConfirmationComponent />
+        <WalletComponent/>
       ),
     },
 
