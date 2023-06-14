@@ -1,11 +1,13 @@
 body {
   background-color: beige;
 
+/* CSS FOR THE WALLET PAGE */
+
 }
 #wallet-item{
   border-radius:20%;
   background: rgb(79, 169, 169);
-  border-style: groove;
+  border-style:inset;
   /* margin-bottom: 50%;
   margin-top: 5%; */
   text-align: center;
@@ -32,8 +34,13 @@ body {
   text-align: center;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
   font-size:larger;
+  padding: 2%;
+
 }
 
+/* CSS FOR THE LANDING PAGE */
+
+/* css for the customer location input form */
 #customer-location-form {
   position: absolute;
   left:40%;
@@ -67,6 +74,7 @@ body {
   font-size: 55px;
   margin-bottom: 1%;
 }
+/* css for the restaurant list */
 #restaurant-profile {
   display: inline-flex;
   justify-content: center;
@@ -110,3 +118,13 @@ a:active {
 
 }
 
+/* CSS FOR THE MODAL/ pick-table compoment */
+#make-another-btn {
+
+}
+#close-modal-btn {
+
+}
+#view-booking-btn {
+
+}
