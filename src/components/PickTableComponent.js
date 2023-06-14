@@ -125,16 +125,17 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
 
     return ( <>
             <h3>How many people?</h3>
-            <form onSubmit={handleFormSubmit}>
+            <form id="number-of-people-form" onSubmit={handleFormSubmit}>
                 <input
                  type="number"
+                 min="0"
                  placeholder="Enter"
                  id="numberOfPeople"
                  />
-            <button onClick={handleDisplayOptions}>Submit</button>
+            <button id="submit-people-btn" onClick={handleDisplayOptions}>Submit</button>
             {displayTableOptions ? <div> {listOfTablesToChooseFrom} </div>: null}
-            {showRestartButton ? <button onClick={handleRestartBooking}>Restart Booking</button> : null}
-            {buttonClicked ? <button onClick={handleReservationModal}>Submit Reservation</button> : null}
+            {showRestartButton ? <button id="restart-booking-btn" onClick={handleRestartBooking}>Restart Booking</button> : null}
+            {buttonClicked ? <button id="submit-reservation-btn" onClick={handleReservationModal}>Submit Reservation</button> : null}
             </form>
 
     </> );

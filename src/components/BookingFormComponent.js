@@ -57,12 +57,12 @@ const BookingFormComponent = ({restaurant}) => {
 
     return ( <>
             <p>tables</p>
-            <div>
+            <div id="tables">
                 <button onClick={handleShowwAllTables}>All Tables</button>
                 <button onClick={handleShowAvailableTables}>Available Tables</button>
             </div>
-            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}/>
-            <TimePicker onChange={onChange} value={value} />
+            <DatePicker id="date-picker" selected={startDate} onChange={(date) => setStartDate(date)}/>
+            <TimePicker id="time-picker" onChange={onChange} value={value} />
             {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <TimePicker label="Basic time picker" />
                 <DatePicker label="Basic date picker" />
@@ -70,7 +70,7 @@ const BookingFormComponent = ({restaurant}) => {
             {/* <div>
                 <TableListComponent tableList={tableList} allAvailableTables={allAvailableTables} showAllTables={showAllTables}/>
             </div> */}
-            <div>
+            <div id="pick-table">
                 {showPickTableComponent ? <PickTableComponent allAvailableTables={allAvailableTables} restaurant={restaurant}/> :  <div>
                 <TableListComponent tableList={tableList} allAvailableTables={allAvailableTables} showAllTables={showAllTables}/> <button onClick={handleMakeReservation}>Make Reservation</button></div> 
                 }

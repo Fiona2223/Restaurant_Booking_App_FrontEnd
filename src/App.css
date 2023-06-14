@@ -1,38 +1,268 @@
-.App {
+body {
+  background-color: beige;
+
+/* CSS FOR THE WALLET PAGE */
+
+}
+#wallet-item{
+  border-radius:20%;
+  background: rgb(79, 169, 169);
+  border-style:inset;
+  /* margin-bottom: 50%;
+  margin-top: 5%; */
   text-align: center;
-}
+  width:35%;
+  justify-self: center;
+  position:relative;
+  left: 32%;
+  top: 20%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* :hover #wallet-item{
+  margin-bottom: 5%;
+  margin-top: 1%;
+} */
+#extra-booking-info {
+  display: inline-block;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#wallet-container {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+  font-size:larger;
+  padding: 2%;
+
+}
+
+/* CSS FOR THE LANDING PAGE */
+
+/* css for the customer location input form */
+#customer-location-form {
+  position: absolute;
+  left:40%;
+  font-size: larger;
+
+}
+#location-input {
+  font-size: larger;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 300px;
+}
+#enter-location-input-btn {
+  font-size: larger;
+  position: absolute;
+  bottom: 0.5%;
+  background-color: rgb(164, 198, 165);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+}
+#enter-location-input-btn:hover {
+  background-color: rgb(64, 253, 64);
+  font-weight: bolder; 
+  /* width:28%; */
+  box-shadow:  0px 0px 5px #333;
+}
+
+#customer-title {
+  display: flex;
+  justify-content: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+  font-size: 55px;
+  margin-bottom: 1%;
+}
+/* css for the restaurant list */
+#restaurant-profile {
+  display: inline-flex;
+  justify-content: center;
+  border-radius:  30%;
+  border-style: outset;
+  width: 150px;
+  height: 140px;
+  text-align: center;
+  font-size: 35px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  /* font-weight:800px; */
+  color: black;
+  text-decoration: none;
+  
+  position: relative;
+  left: 130px;
+  top:50px;
+  bottom: 30px;
+  right:30px;
+
+  padding: 6%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 4%;
+  margin-right: 4%;
+  background-color: rgba(46, 161, 163, 0.465);
+}
+a:link {
+  text-decoration: none;
+  color: black;
+}
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+
+}
+
+/* CSS FOR THE MODAL/ pick-table compoment */
+#modal {
+  width:350px;
+  height: 300px;
+  display: grid;
+  justify-content: center;
+
+  position: relative;
+  top:30%;
+  left:40%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#make-another-btn {
+  width:110px;
+  height: 70px;
+  position:relative;
+  left:-15%;
+  font-size: 15px;
+  padding: 5px;
+  margin-left: 5%;
+  background-color: rgba(34, 123, 125, 0.774);
   color: white;
+  font-weight: 700;
+}
+#make-another-btn:hover {
+  box-shadow: 0px 0px 5px #333;
+  color: rgb(12, 255, 12);
+  background-color: rgb(34, 123, 125);;
+}
+#close-modal-btn {
+  position: relative;
+  left: 110%;
+  bottom: 400%;;
+  color:black;
+  background-color: white;
+  border-style: none;
+  font-size: x-large;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+#close-modal-btn:hover {
+  color: red;
+  font-weight: 700;
+ 
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#view-booking-btn {
+  width:110px;
+  height: 70px;
+  position:relative;
+  left: 72%;
+  font-size: 15px;
+  top:98%;
+  margin-right: 5%;
+  padding: 5px;
+  background-color: rgba(34, 123, 125, 0.774);
+  color: white;
+  font-weight: 700;
+}
+#view-booking-btn:hover {
+  box-shadow: 0px 0px 5px #333;
+  background-color: rgb(34, 123, 125);
+  color: rgb(12, 255, 12);
+}
+
+/* CSS FOR BOOKING PAGE */
+
+#booking-page {
+  position:relative;
+  left:25%;
+}
+/* css for date and time selector */
+#date-picker {
+  position:relative;
+  left:25%;
+  padding:5px;
+  width: 67px;
+  height: 15px;
+
+  background-color: hotpink;
+  align-items: center;
+  justify-content: center;
+  display:flex;
+}
+#time-picker {
+  position:relative;
+  left:5%;
+  padding:10%;
+  width: 20px;
+  height: 20px;
+}
+/* css for availability of tables */
+#tables {
+  position:relative;
+  left:25%;
+}
+
+#pick-table {
+  position:relative;
+  left:25%;
+}
+
+/* css for number of people at table form */
+#number-of-people-form {
+  display:grid;
+  background-color: blue;
+  border-style: inset;
+  border-radius: 10%;
+  width:500px;
+  height:300px;
+
+  position:relative;
+  left: 8%;
+
+}
+#submit-people-btn{
+  position:relative;
+  left:40%;
+  /* top:10%; */
+  display:flex;
+  padding: 15px;
+  width:100px;
+  height: 50px;
+  font-size: 18px;
+}
+
+#restart-booking-btn{
+  position: relative;
+  left:15%;
+  top:90%;
+  display:flex;
+  padding: 10px;
+  width:120px;
+  height: 68px;
+  font-size: 18px;
+}
+
+#submit-reservation-btn{
+  position:relative;
+  left: 60%;
+  bottom:10%;
+  display:flex;
+  padding: 10px;
+  width:120px;
+  height: 68px;
+  font-size: 18px;
 }
