@@ -69,7 +69,7 @@ const CustomerComponent = ({currentCustomer, setCurrentCustomer}) => {
     }, [])
     
     return ( <>
-            <h2 id="customer-title">Nearby Restaurants</h2>
+            <p id="customer-title">Nearby Restaurants</p>
             <form id="customer-location-form">
                 <input id="location-input"
                 type="text"

@@ -64,7 +64,8 @@ body {
   display: flex;
   justify-content: center;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
-  font-size: 35px;
+  font-size: 55px;
+  margin-bottom: 1%;
 }
 #restaurant-profile {
   display: inline-flex;
