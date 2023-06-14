@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 const CUSTOMER_SERVER_URL = "http://localhost:8080/customer";
 
-const PickTableComponent = ({allAvailableTables, restaurant}) => {
+const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selectedTime}) => {
 
     const [listOfTablesToChooseFrom, setListOfTablesToChooseFrom] = useState([]);
     const [displayTableOptions, setDisplayTableOptions] = useState(false);
@@ -18,8 +18,8 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
         customerName: "Yasmin",
         tableIds : [], //onSubmit: add the tableIds to this list
         restaurantId : restaurant.id,
-        date: null, //"yyyy/mm/dd": this will be passed down from BookingFormComponent
-        time: null, //"hh:mm:ss": this will be passed down from BookingFormComponent
+        date: selectedDate, //"yyyy/mm/dd": this will be passed down from BookingFormComponent
+        time: selectedTime, //"hh:mm:ss": this will be passed down from BookingFormComponent
         message: "Reservation Made!"
     })
 
@@ -43,8 +43,14 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
     // postBooking();
 
     useEffect(() => {
-        const tableButtons = allAvailableTables.map((table) => {
-            return <button key={table.id} onClick={() => {handleIncrementTableSeatsCounter(table); setTableSeatsCounter((previousValue) => previousValue + table.numberOfSeats)}}>{table.numberOfSeats}</button>
+        // const tableButtons = allAvailableTables.map((table) => {
+        //     return <button key={table.id} onClick={() => {handleIncrementTableSeatsCounter(table); setTableSeatsCounter((previousValue) => previousValue + table.numberOfSeats)}}>{table.numberOfSeats}</button>
+        // })
+
+        const tableButtons = allAvailableTables
+        .sort()
+        .map((table) => {
+            return <button key={table.numberOfSeats} onClick={() => {handleIncrementTableSeatsCounter(table); setTableSeatsCounter((previousValue) => previousValue + table.numberOfSeats)}}>{table.numberOfSeats}</button>
         })
 
         setListOfTablesToChooseFrom(tableButtons);
@@ -55,12 +61,19 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
         setShowRestartButton(true);
         listOfChosenTables.push(table.id);
         setListOfChosenTables(listOfChosenTables);
-        console.log(listOfChosenTables);
     }
 
     useEffect(() => {
+        const numOfCurrentBookings = parseInt(customersBooking.length);
+        const newBookingId = numOfCurrentBookings + 1;
+        console.log(newBookingId);
+
         let copiedStateBooking = {...stateBooking};
-        copiedStateBooking.id = 2;
+        // TO-DO: get the correct id for this some how
+        // maybe do customerBookings.length + 1??- tried on line 62 & 63
+        // return NaN because customersBooking has failed to fetch because
+        // of a server-side error. - need to fix this first
+        copiedStateBooking.id = newBookingId;
         copiedStateBooking.tableIds = listOfChosenTables;
         setStateBooking(copiedStateBooking);
     }, [listOfChosenTables])
