@@ -34,7 +34,7 @@ const router = createBrowserRouter([
     },
 
     {
-      path:"bookings",
+      path:"confirmation",
       element: (
         <ConfirmationComponent/>
       ),

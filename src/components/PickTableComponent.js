@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from 'react-modal';
+import { useNavigate } from "react-router-dom";
 
 
 const PickTableComponent = ({allAvailableTables}) => {
@@ -9,6 +10,8 @@ const PickTableComponent = ({allAvailableTables}) => {
     })
 
     const [isOpen, setIsOpen] = useState(false);
+    let navigate = useNavigate();
+
 
     const handleOpenModal = () => {
       setIsOpen(true);
@@ -16,14 +19,18 @@ const PickTableComponent = ({allAvailableTables}) => {
   
     const handleCloseModal = () => {
       setIsOpen(false);
+      navigate("/")
     };
-  
+
     const handleMakeAnotherReservation = () => {
-      // Logic for handling "Make Another Reservation" button click
+        navigate("/");
     };
+
+    const handleViewBookingDetails = () => {
+        navigate("/confirmation")
+    }
   
     const handleSubmitReservation = () => {
-      // Logic for handling "Submit Reservation" button click
       handleOpenModal();
     };
     
@@ -38,13 +45,13 @@ const PickTableComponent = ({allAvailableTables}) => {
                  placeholder="Enter"
                  />
             </form>
-            {/* <button>Submit Reservation</button> */}
             <div>
       <button onClick={handleSubmitReservation}>Submit Reservation</button>
       <Modal isOpen={isOpen} onRequestClose={handleCloseModal}>
         <h2>Reservation Successful!</h2>
         <p>Your reservation has been confirmed.</p>
-        <button onClick={handleCloseModal}>OK</button>
+        <div><button onClick={handleCloseModal}>X</button></div>
+        <button onClick={handleViewBookingDetails}>View Booking Details</button>
         <button onClick={handleMakeAnotherReservation}>Make Another Reservation</button>
       </Modal>
     </div>
