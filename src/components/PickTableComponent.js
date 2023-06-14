@@ -1,7 +1,7 @@
 const PickTableComponent = ({allAvailableTables}) => {
 
     const listOfTablesToChooseFrom = allAvailableTables.map((table) => {
-        return <button>{table.id}</button>
+        return <button>{table.numberOfSeats}</button>
     })
 
 
