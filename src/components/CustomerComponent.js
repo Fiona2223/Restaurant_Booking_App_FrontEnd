@@ -69,16 +69,18 @@ const CustomerComponent = ({currentCustomer, setCurrentCustomer}) => {
     }, [])
     
     return ( <>
-            <h2>Hello from CustomerComponent</h2>
-            <form>
-                <input 
+            <h2 id="customer-title">Nearby Restaurants</h2>
+            <form id="customer-location-form">
+                <input id="location-input"
                 type="text"
                 name="customerLocation"
                 placeholder="Enter your current location"
                 value ={customerLocation}
                 onChange={handleLocationChange}
                 />
-                <button type="submit" onClick={handleFormSubmit}>Enter</button>
+                <button id="enter-location-input-btn"
+                        type="submit" 
+                        onClick={handleFormSubmit}>Enter</button>
 
             </form>
     </> );
