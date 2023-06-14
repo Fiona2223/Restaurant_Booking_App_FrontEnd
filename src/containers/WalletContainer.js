@@ -18,7 +18,9 @@ const WalletContainer = () => {
 
     return (
         <>
-            <WalletList customerBookings = {customerBookings}/>
+            <div id="wallet-container">
+            <WalletList customerBookings = {customerBookings}/>                
+            </div>
         </>
       );
 }

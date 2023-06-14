@@ -9,7 +9,10 @@ const WalletList = ({customerBookings}) => {
 
     return (
         <>
-        {walletComponent}
+        <div id="wallet-container">        
+            <h1> Your Wallet</h1>
+            {walletComponent}
+        </div>
         </>
 
       );
