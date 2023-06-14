@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+const CUSTOMER_SERVER_URL = "http://localhost:8080/customer";
 
 const PickTableComponent = ({allAvailableTables, restaurant}) => {
 
@@ -7,7 +8,7 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
     const [counterNumberOfPeople, setCounterNumberOfPeople] = useState(null);
     const [tableSeatsCounter, setTableSeatsCounter] = useState(0);
     const [buttonClicked, setButtonClicked] = useState(false);
-
+    const [customersBooking, setCustomersBooking] = useState([]);
     const [stateBooking, setStateBooking] = useState({
         id: null,
         customerId: 1,
@@ -19,22 +20,56 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
         message: "Reservation Made!"
     })
 
-
-
-    const handleButtonClickedStateChange = () =>{
-        setButtonClicked(true);
+    const fetchCustomerBookings = async() => {
+      const response = await fetch(`${CUSTOMER_SERVER_URL}/1/bookings`)
+      const jsonData = await response.json();
+      setCustomersBooking(jsonData);
     }
+
+
+    // this needs to be passed down to the PickTableComponent: so this needs to be done in the
+    // react router to be passed down to PickTableComponent.
+
+    const postBooking = async(booking) => {
+      const response = await fetch("http://localhost:8080/bookings",{
+          method: "POST",
+          headers: {"Content-type" : "application/json"},
+          body : JSON.stringify(booking)
+      });
+      const savedBooking = await response.json();
+    //   setCustomersBooking([...customersBooking, savedBooking]);
+    }
+
+    // postBooking();
+
+
+    
 
     useEffect(() => {
         console.log("hello world!");
         const tableButtons = allAvailableTables.map((table) => {
-            return <button key={table.id} onClick={() => {handleButtonClickedStateChange(); setTableSeatsCounter((previousValue) => previousValue + table.numberOfSeats)}}>{table.numberOfSeats}</button>
+            // return <button key={table.id} onClick={() => {handleButtonClickedStateChange(table); setTableSeatsCounter((previousValue) => previousValue - table.numberOfSeats)}}>{table.numberOfSeats}</button>
+            return <button key={table.id} onClick={ ()=>{handleButtonClickedStateChange(table)}}>{table.numberOfSeats}</button>
         })
         
-        setListOfTablesToChooseFrom(tableButtons);
+        // if number of seats picked == size of party than make size appear 
+        // if state of seats picked is >= display submit button until then disable it 
+        // "you have [x] of people to seat"
+        // create an array - handlebutton state click - store table object in an array state
         
+
+        setListOfTablesToChooseFrom(tableButtons);
+        fetchCustomerBookings();
     }, [allAvailableTables]);
     
+    const handleButtonClickedStateChange = (table) =>{
+        // setButtonClicked(true);
+        // for(let i = 0; i < table.length; i++){
+        //     const tablesNumberOfSeats = [i].numberOfSeats;
+        // }
+        setTableSeatsCounter(parseInt(tableSeatsCounter) + table.numberOfSeats);
+        console.log(table);
+    }
 
     useEffect(() => {
         // function: only allow the customer to book an appropriate table
@@ -64,25 +99,28 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
            return alert("Enter the number of people you would like to book for!");
         }
         setCounterNumberOfPeople(input.value);
+        // setTableSeatsCounter(input.value);
     }
 
     const handleReservationModal = () => {
         console.log("reservation made");
     }
 
-    // onSubmit={handleMakeNewBooking}
-
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        postBooking(stateBooking);
+    }
     return ( <>
             <h3>How many people?</h3>
-            <form >
+            <form onSubmit={handleFormSubmit}>
                 <input
                  type="number"
                  placeholder="Enter"
                  id="numberOfPeople"
                  />
             <button onClick={handleDisplayOptions}>Submit</button>
-            </form>
             {displayTableOptions ? <div> {listOfTablesToChooseFrom} <button onClick={handleReservationModal}>Submit Reservation</button> </div>: null}
+            </form>
 
     </> );
 }
