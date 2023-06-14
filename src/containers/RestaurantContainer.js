@@ -12,7 +12,8 @@ const RestaurantContainer = () => {
 
 
     const getCustomer = async () => {
-        const response = await fetch(`${CUSTOMER_SERVER_URL}`,{
+        const response = await fetch(`${CUSTOMER_SERVER_URL}`,
+        {
             method: "GET",
             headers:{"Content-Type": "application/json"} 
         })
