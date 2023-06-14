@@ -26,14 +26,19 @@ const router = createBrowserRouter([
     ),
   }, 
     {
-      path:"restaurants",
+      path:"restaurants/:restaurantId", 
+      loader: async({params}) => {
+        const response = await fetch(`${SERVER_URL}/restaurants/${params.restaurantId}`);
+        const data = await response.json();
+        return data;
+      },
       element: (
         <RestaurantComponent/>
       ),
     },
 
     {
-      path:"bookings",
+      path:"confirmation",
       element: (
         <CustomerComponent/>
       ),

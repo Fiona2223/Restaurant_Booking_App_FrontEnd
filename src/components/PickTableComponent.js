@@ -1,6 +1,62 @@
-const PickTableComponent = () => {
+import { useState } from "react";
+import Modal from 'react-modal';
+import { useNavigate } from "react-router-dom";
+
+
+const PickTableComponent = ({allAvailableTables}) => {
+
+    const listOfTablesToChooseFrom = allAvailableTables.map((table) => {
+        return <button>{table.id}</button>
+    })
+
+    const [isOpen, setIsOpen] = useState(false);
+    let navigate = useNavigate();
+
+
+    const handleOpenModal = () => {
+      setIsOpen(true);
+    };
+  
+    const handleCloseModal = () => {
+      setIsOpen(false);
+      navigate("/")
+    };
+
+    const handleMakeAnotherReservation = () => {
+        navigate("/");
+    };
+
+    const handleViewBookingDetails = () => {
+        navigate("/confirmation")
+    }
+  
+    const handleSubmitReservation = () => {
+      handleOpenModal();
+    };
+    
+      
+      
+
     return ( <>
-            <h2>Hello PickTableComponent</h2>
+            <h3>How many people?</h3>
+            <form>
+                <input
+                 type="number"
+                 placeholder="Enter"
+                 />
+            </form>
+            <div>
+      <button onClick={handleSubmitReservation}>Submit Reservation</button>
+      <Modal isOpen={isOpen} onRequestClose={handleCloseModal}>
+        <h2>Reservation Successful!</h2>
+        <p>Your reservation has been confirmed.</p>
+        <div><button onClick={handleCloseModal}>X</button></div>
+        <button onClick={handleViewBookingDetails}>View Booking Details</button>
+        <button onClick={handleMakeAnotherReservation}>Make Another Reservation</button>
+      </Modal>
+    </div>
+      
+            {listOfTablesToChooseFrom}
     </> );
 }
  

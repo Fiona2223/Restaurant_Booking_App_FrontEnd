@@ -1,6 +1,8 @@
-const TableComponent = () => {
+const TableComponent = ({table, availableTable, showAllTables}) => {
     return ( <>
-            <h2>Hello PickTableComponent</h2>
+            <h2>{ showAllTables ?table.numberOfSeats : availableTable.numberOfSeats}</h2>
+
+
     </> );
 }
  
