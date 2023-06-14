@@ -8,8 +8,30 @@ const RestaurantContainer = () => {
     const [customers, setCustomers] = useState([]);
     const [currentCustomer, setCurrentCustomer] = useState({});
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
+    const [customersBooking, setCustomersBooking] = useState([]);
 
+    // const fetchCustomerBookings = async() => {
+    //   const response = await fetch("http://localhost:8080/bookings/customer/1",{
+    //       method: "GET",
+    //       headers:{"Content-Type": "application/json"} 
+    //   });
+    //   const jsonData = response.json();
+    //   setCustomersBooking(jsonData);
+    // }
 
+    // fetchCustomerBookings();
+
+    // const postBooking = async(booking) => {
+    //   const response = await fetch("http://localhost:8080/bookings",{
+    //       method: "POST",
+    //       headers: {"Content-type" : "application/json"},
+    //       body : JSON.stringify(booking)
+    //   });
+    //   const savedBooking = await response.json();
+    //   setCustomersBooking([...customersBooking, savedBooking]);
+    // }
+
+    // postBooking();
 
     const getCustomer = async () => {
         const response = await fetch(`${CUSTOMER_SERVER_URL}`,{
@@ -29,7 +51,7 @@ const RestaurantContainer = () => {
             const data = await response.json();
             setListOfRestaurants(data);
         }
-        fetchRestaurants();      
+        fetchRestaurants(); 
       }, [])
   
     return ( 

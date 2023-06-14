@@ -5,7 +5,7 @@
 
 import TableListComponent from "../components/TableListComponent";
 import { useState, useEffect } from "react";
-import DateTimePicker from 'react-datetime-picker';
+// import DateTimePicker from 'react-datetime-picker';
 import DatePicker from 'react-datepicker';
 import TimePicker from 'react-time-picker';
 import PickTableComponent from "./PickTableComponent";
@@ -71,10 +71,10 @@ const BookingFormComponent = ({restaurant}) => {
                 <TableListComponent tableList={tableList} allAvailableTables={allAvailableTables} showAllTables={showAllTables}/>
             </div> */}
             <div>
-                {showPickTableComponent ? <PickTableComponent allAvailableTables={allAvailableTables} /> :  <div>
-                <TableListComponent tableList={tableList} allAvailableTables={allAvailableTables} showAllTables={showAllTables}/></div> 
+                {showPickTableComponent ? <PickTableComponent allAvailableTables={allAvailableTables} restaurant={restaurant}/> :  <div>
+                <TableListComponent tableList={tableList} allAvailableTables={allAvailableTables} showAllTables={showAllTables}/> <button onClick={handleMakeReservation}>Make Reservation</button></div> 
                 }
-            <button onClick={handleMakeReservation}>Make Reservation</button>
+            
 
             </div>
             
