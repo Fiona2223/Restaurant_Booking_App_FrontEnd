@@ -10,16 +10,15 @@ const RestaurantContainer = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [customersBooking, setCustomersBooking] = useState([]);
 
-    // const fetchCustomerBookings = async() => {
-    //   const response = await fetch("http://localhost:8080/bookings/customer/1",{
-    //       method: "GET",
-    //       headers:{"Content-Type": "application/json"} 
-    //   });
-    //   const jsonData = response.json();
-    //   setCustomersBooking(jsonData);
-    // }
+    const fetchCustomerBookings = async() => {
+      const response = await fetch(`${CUSTOMER_SERVER_URL}/1/bookings`)
+      const jsonData = await response.json();
+      setCustomersBooking(jsonData);
+    }
 
-    // fetchCustomerBookings();
+
+    // this needs to be passed down to the PickTableComponent: so this needs to be done in the
+    // react router to be passed down to PickTableComponent.
 
     // const postBooking = async(booking) => {
     //   const response = await fetch("http://localhost:8080/bookings",{
@@ -52,6 +51,7 @@ const RestaurantContainer = () => {
             setListOfRestaurants(data);
         }
         fetchRestaurants(); 
+        fetchCustomerBookings();
       }, [])
   
     return ( 
