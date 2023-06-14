@@ -5,10 +5,11 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
 
     const [listOfTablesToChooseFrom, setListOfTablesToChooseFrom] = useState([]);
     const [displayTableOptions, setDisplayTableOptions] = useState(false);
-    const [counterNumberOfPeople, setCounterNumberOfPeople] = useState(null);
+    const [counterNumberOfPeople, setCounterNumberOfPeople] = useState(0);
     const [tableSeatsCounter, setTableSeatsCounter] = useState(0);
     const [buttonClicked, setButtonClicked] = useState(false);
     const [customersBooking, setCustomersBooking] = useState([]);
+    const [showRestartButton, setShowRestartButton] = useState(false);
     const [stateBooking, setStateBooking] = useState({
         id: null,
         customerId: 1,
@@ -48,8 +49,8 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
     useEffect(() => {
         console.log("hello world!");
         const tableButtons = allAvailableTables.map((table) => {
-            // return <button key={table.id} onClick={() => {handleButtonClickedStateChange(table); setTableSeatsCounter((previousValue) => previousValue - table.numberOfSeats)}}>{table.numberOfSeats}</button>
-            return <button key={table.id} onClick={ ()=>{handleButtonClickedStateChange(table)}}>{table.numberOfSeats}</button>
+            return <button key={table.id} onClick={() => {handleIncrementTableSeatsCounter(table); setTableSeatsCounter((previousValue) => previousValue + table.numberOfSeats)}}>{table.numberOfSeats}</button>
+            // return <button key={table.id} onClick={ ()=>{handleIncrementTableSeatsCounter(table)}}>{table.numberOfSeats}</button>
         })
         
         // if number of seats picked == size of party than make size appear 
@@ -62,14 +63,21 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
         fetchCustomerBookings();
     }, [allAvailableTables]);
     
-    const handleButtonClickedStateChange = (table) =>{
-        // setButtonClicked(true);
-        // for(let i = 0; i < table.length; i++){
-        //     const tablesNumberOfSeats = [i].numberOfSeats;
-        // }
-        setTableSeatsCounter(parseInt(tableSeatsCounter) + table.numberOfSeats);
+    const handleIncrementTableSeatsCounter = (table) =>{
+        setShowRestartButton(true);
         console.log(table);
+        console.log(tableSeatsCounter + table.numberOfSeats);
+        // setTableSeatsCounter(tableSeatsCounter + table.numberOfSeats);
+        // when tableSeatsCounter >= numberOfSeats => make "submit reservation" button appear
+        if(tableSeatsCounter >= parseInt(counterNumberOfPeople)){
+            setButtonClicked(true);
+        }
+
     }
+
+    // useEffect(() => {
+    
+    // }, [tableSeatsCounter, counterNumberOfPeople])
 
     useEffect(() => {
         // function: only allow the customer to book an appropriate table
@@ -110,6 +118,11 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
         e.preventDefault();
         postBooking(stateBooking);
     }
+
+    const handleRestartBooking = () => {
+        console.log("restart booking");
+    }
+
     return ( <>
             <h3>How many people?</h3>
             <form onSubmit={handleFormSubmit}>
@@ -119,7 +132,9 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
                  id="numberOfPeople"
                  />
             <button onClick={handleDisplayOptions}>Submit</button>
-            {displayTableOptions ? <div> {listOfTablesToChooseFrom} <button onClick={handleReservationModal}>Submit Reservation</button> </div>: null}
+            {displayTableOptions ? <div> {listOfTablesToChooseFrom} </div>: null}
+            {showRestartButton ? <button onClick={handleRestartBooking}>Restart Booking</button> : null}
+            {buttonClicked ? <button onClick={handleReservationModal}>Submit Reservation</button> : null}
             </form>
 
     </> );
