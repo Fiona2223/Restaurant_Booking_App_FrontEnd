@@ -119,12 +119,67 @@ a:active {
 }
 
 /* CSS FOR THE MODAL/ pick-table compoment */
-#make-another-btn {
+#modal {
+  width:350px;
+  height: 300px;
+  display: grid;
+  justify-content: center;
 
+  position: relative;
+  top:30%;
+  left:40%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#make-another-btn {
+  width:110px;
+  height: 70px;
+  position:relative;
+  left:-15%;
+  font-size: 15px;
+  padding: 5px;
+  margin-left: 5%;
+  background-color: rgba(34, 123, 125, 0.774);
+  color: white;
+  font-weight: 700;
+}
+#make-another-btn:hover {
+  box-shadow: 0px 0px 5px #333;
+  color: rgb(12, 255, 12);
+  background-color: rgb(34, 123, 125);;
 }
 #close-modal-btn {
+  position: relative;
+  left: 110%;
+  bottom: 400%;;
+  color:black;
+  background-color: white;
+  border-style: none;
+  font-size: x-large;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#close-modal-btn:hover {
+  color: red;
+  font-weight: 700;
+ 
 
 }
-#view-booking-btn {
 
+#view-booking-btn {
+  width:110px;
+  height: 70px;
+  position:relative;
+  left: 72%;
+  font-size: 15px;
+  top:98%;
+  margin-right: 5%;
+  padding: 5px;
+  background-color: rgba(34, 123, 125, 0.774);
+  color: white;
+  font-weight: 700;
+}
+#view-booking-btn:hover {
+  box-shadow: 0px 0px 5px #333;
+  background-color: rgb(34, 123, 125);
+  color: rgb(12, 255, 12);
 }
