@@ -70,7 +70,7 @@ const CustomerComponent = ({currentCustomer, setCurrentCustomer}) => {
     
     return ( <>
             <p id="customer-title">Nearby Restaurants</p>
-            <form id="customer-location-form">
+            {/* <form id="customer-location-form">
                 <input id="location-input"
                 type="text"
                 name="customerLocation"
@@ -82,7 +82,7 @@ const CustomerComponent = ({currentCustomer, setCurrentCustomer}) => {
                         type="submit" 
                         onClick={handleFormSubmit}>Enter</button>
 
-            </form>
+            </form> */}
     </> );
 }
  

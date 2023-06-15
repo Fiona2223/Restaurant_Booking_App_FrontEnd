@@ -46,8 +46,8 @@ const RestaurantContainer = () => {
     return ( 
             <>
               <CustomerComponent currentCustomer={currentCustomer} setCurrentCustomer={setCurrentCustomer}/>
-              <RestaurantProfileListComponent listOfRestaurants = {filteredRestaurants} />   
               <MapComponent filterRestaurants={filterRestaurants}/>      
+              <RestaurantProfileListComponent listOfRestaurants = {filteredRestaurants} />   
 
              
             </>
