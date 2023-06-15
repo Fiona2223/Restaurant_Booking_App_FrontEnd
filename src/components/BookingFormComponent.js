@@ -1,24 +1,25 @@
-// import {TimePicker, DatePicker} from '@mui/x-date-pickers';
-// import { LocalizationProvider } from '@mui/x-date-pickers';
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-
-
 import TableListComponent from "../components/TableListComponent";
-import { useState, useEffect } from "react";
-import DateTimePicker from 'react-datetime-picker';
-import DatePicker from 'react-datepicker';
-import TimePicker from 'react-time-picker';
 import PickTableComponent from "./PickTableComponent";
 
+import { useState, useEffect } from "react";
+
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
+import "../Booking.css";
 
 const BookingFormComponent = ({restaurant}) => {
 
     const [tableList, setTableList] = useState([]);
     const [showAllTables , setShowAllTables] = useState(true);
     const [allAvailableTables, setAllAvailableTables] = useState([]);
-    const [startDate,setStartDate] = useState(new Date());
-    const [value, onChange] = useState('10:00');
     const [showPickTableComponent, setShowPickTableComponent] = useState(false);
+
+    // this state stored the time and the date
+    const [startDate,setStartDate] = useState(new Date());
+
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedTime, setSelectedTime] = useState(null);
+
     
 
     const fetchTablesByRestaurantId = async () => {
@@ -39,15 +40,16 @@ const BookingFormComponent = ({restaurant}) => {
         setShowPickTableComponent(true);
     }
 
-// tables with no booking ids should be displayed when clicking available_tables
-
     const creatingAlistOfAvailableTables = () => {
-         const AvailableTables = tableList.filter(table => table.bookingIds.length === 0);
+         const AvailableTables = tableList.filter(table => table.listOfBookings.length === 0);
          setAllAvailableTables(AvailableTables);
     }
    
     useEffect(() => {
-        fetchTablesByRestaurantId();      
+        fetchTablesByRestaurantId(); 
+        const currentDate = new Date();     
+        setSelectedDate(currentDate);
+        setSelectedTime(currentDate);
       }, [])
 
       useEffect(() => {
@@ -55,28 +57,43 @@ const BookingFormComponent = ({restaurant}) => {
             
       }, [tableList])
 
-    return ( <>
-            <p>tables</p>
-            <div>
-                <button onClick={handleShowwAllTables}>All Tables</button>
-                <button onClick={handleShowAvailableTables}>Available Tables</button>
-            </div>
-            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}/>
-            <TimePicker onChange={onChange} value={value} />
-            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <TimePicker label="Basic time picker" />
-                <DatePicker label="Basic date picker" />
-            </LocalizationProvider> */}
-            {/* <div>
-                <TableListComponent tableList={tableList} allAvailableTables={allAvailableTables} showAllTables={showAllTables}/>
-            </div> */}
-            <div>
-                {showPickTableComponent ? <PickTableComponent allAvailableTables={allAvailableTables} /> :  <div>
-                <TableListComponent tableList={tableList} allAvailableTables={allAvailableTables} showAllTables={showAllTables}/></div> 
-                }
-            <button onClick={handleMakeReservation}>Make Reservation</button>
+      const handleDateChange = (date) =>{
+        const newDate = date;
+        setSelectedDate(newDate.toLocaleDateString());
+      }
 
-            </div>
+      const handleTimeChange = (time) =>{
+        const newTime = time;
+        setSelectedTime(newTime.toLocaleTimeString());
+      }
+
+    return ( <>
+                <div className="Container">
+                <h2 className="title">{restaurant.name}</h2>
+                <div>
+                <button onClick={handleShowwAllTables} className="AllTablesButton">All Tables</button>
+                <button onClick={handleShowAvailableTables}className="AvailableTableButtons">Available Tables</button>
+                </div >
+                    <div>
+                        <div className="DayPicker"><DatePicker 
+                        selected={startDate} 
+                        onChange={(date) => {handleDateChange(date) ; setStartDate(date)}}
+                        /></div>
+                        <div className="TimePicker"><DatePicker 
+                        selected={startDate} 
+                        onChange={(date) => {handleTimeChange(date) ; setStartDate(date)}}
+                        showTimeSelect
+                        showTimeSelectOnly
+                        timeIntervals={15}
+                        timeCaption="Time"
+                        dateFormat="h:mm aa"
+                        /></div>
+                    </div>
+                    </div>
+                <div>
+                {showPickTableComponent ? <PickTableComponent allAvailableTables={allAvailableTables} restaurant={restaurant} selectedDate={selectedDate} selectedTime={selectedTime}/> :  <div>
+                <TableListComponent tableList={tableList} allAvailableTables={allAvailableTables} showAllTables={showAllTables}/> <button onClick={handleMakeReservation} className="ReservationButton">Make Reservation</button></div>}
+                </div>
             
     </> );
 }

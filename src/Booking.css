@@ -1,0 +1,103 @@
+.title{
+    text-align: center;
+}
+
+.AvailableTableButtons{
+    margin-left: 170px;
+}
+
+.AllTablesButton{
+    margin-left: 170px;
+}
+
+.TimePicker{
+    position: absolute;
+    top: 13.5%;
+    left: 60%;
+}
+
+.DayPicker{
+    position: absolute;
+    top: 13.5%;
+    left: 80%;
+}
+
+.TablesContainer{
+ display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 10px;
+  margin-top: 40px;
+ 
+}
+
+
+.Tables{
+
+  border: 1px solid rgb(168, 148, 112);
+  padding: 30px;
+  background-color: rgb(170, 141, 104);
+  position: relative;
+  margin: 0 auto;
+}
+
+.table-leg-right{
+    background-color: rgb(97, 82, 75); /* Adjust the color of the table legs */
+    width: 20px;
+    height: 10px; /* Adjust the height of the table legs */
+    position: absolute;
+    /* margin-top: 10px; */
+    /* margin-left: 60px; */
+    bottom: 25%;
+    left: 110%;
+    /* right: 12%; */
+}
+.table-leg-right2{
+    background-color: rgb(97, 82, 75); /* Adjust the color of the table legs */
+    width: 20px;
+    height: 10px; /* Adjust the height of the table legs */
+    position: absolute;
+    /* margin-top: 10px; */
+    /* margin-left: 60px; */
+    bottom: 60%;
+    left: 110%;
+    /* right: 12%; */
+}
+
+.table-leg-left{
+    background-color: rgb(97, 82, 75); /* Adjust the color of the table legs */
+    width: 20px;
+    height: 10px; /* Adjust the height of the table legs */
+    position: absolute;
+    /* margin-top: 10px; */
+    /* margin-left: 60px; */
+    bottom: 25%;
+    right: 110%;
+    /* right: 12%; */
+}
+
+.table-leg-left2{
+    background-color: rgb(97, 82, 75); /* Adjust the color of the table legs */
+    width: 20px;
+    height: 10px; /* Adjust the height of the table legs */
+    position: absolute;
+    /* margin-top: 10px; */
+    /* margin-left: 60px; */
+    bottom: 60%;
+    right: 110%;
+    /* right: 12%; */
+}
+
+
+.ReservationButton{
+    position: absolute;
+    top: 60%;
+    left: 45%;
+}
+
+.Container{
+    background-color: rgb(246, 241, 232);
+    padding-top: 10px;
+    padding-bottom: 50px;
+}

@@ -10,8 +10,6 @@ const RestaurantContainer = () => {
     const [currentCustomer, setCurrentCustomer] = useState({});
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
-
-
     const getCustomer = async () => {
         const response = await fetch(`${CUSTOMER_SERVER_URL}`,
         {
@@ -31,7 +29,7 @@ const RestaurantContainer = () => {
             const data = await response.json();
             setListOfRestaurants(data);
         }
-        fetchRestaurants();      
+        fetchRestaurants(); 
       }, [])
   
     return ( 
