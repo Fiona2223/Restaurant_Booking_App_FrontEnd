@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import "../Booking.css";
 
 const BookingFormComponent = ({restaurant}) => {
 
@@ -67,16 +68,18 @@ const BookingFormComponent = ({restaurant}) => {
       }
 
     return ( <>
-            <div>
-                <button onClick={handleShowwAllTables}>All Tables</button>
-                <button onClick={handleShowAvailableTables}>Available Tables</button>
-            </div>
-            <div>
-                <div><DatePicker 
+                <div className="Container">
+                <h2 className="title">{restaurant.name}</h2>
+                <div>
+                <button onClick={handleShowwAllTables} className="AllTablesButton">All Tables</button>
+                <button onClick={handleShowAvailableTables}className="AvailableTableButtons">Available Tables</button>
+                </div >
+                    <div>
+                        <div className="DayPicker"><DatePicker 
                         selected={startDate} 
                         onChange={(date) => {handleDateChange(date) ; setStartDate(date)}}
                         /></div>
-                <div><DatePicker 
+                        <div className="TimePicker"><DatePicker 
                         selected={startDate} 
                         onChange={(date) => {handleTimeChange(date) ; setStartDate(date)}}
                         showTimeSelect
@@ -85,11 +88,12 @@ const BookingFormComponent = ({restaurant}) => {
                         timeCaption="Time"
                         dateFormat="h:mm aa"
                         /></div>
-             </div>
-            <div>
+                    </div>
+                    </div>
+                <div>
                 {showPickTableComponent ? <PickTableComponent allAvailableTables={allAvailableTables} restaurant={restaurant} selectedDate={selectedDate} selectedTime={selectedTime}/> :  <div>
-                <TableListComponent tableList={tableList} allAvailableTables={allAvailableTables} showAllTables={showAllTables}/> <button onClick={handleMakeReservation}>Make Reservation</button></div>}
-            </div>
+                <TableListComponent tableList={tableList} allAvailableTables={allAvailableTables} showAllTables={showAllTables}/> <button onClick={handleMakeReservation} className="ReservationButton">Make Reservation</button></div>}
+                </div>
             
     </> );
 }

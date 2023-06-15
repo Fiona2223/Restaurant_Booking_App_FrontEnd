@@ -1,5 +1,6 @@
 import { useLoaderData, Link } from "react-router-dom";
 import BookingFormComponent from "./BookingFormComponent";
+import "../Booking.css";
 
 const RestaurantComponent = ({}) => {
 
@@ -8,7 +9,6 @@ const RestaurantComponent = ({}) => {
     return ( <>
             <div>
                 <Link to="/">&#10094;Back</Link>
-                <h2>{restaurant.name}</h2>
             </div>
             <BookingFormComponent restaurant={restaurant}/>
             
