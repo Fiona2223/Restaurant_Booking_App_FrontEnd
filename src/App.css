@@ -98,11 +98,13 @@ body {
   margin-bottom: 5px; 
   margin-right: 10px;
   text-decoration: none; 
+  color: white;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #person {
   position:relative;
-  bottom:87%;
+  bottom:91%;
   /* right: %; */
   width: 200px;
   height: 250px;
@@ -157,11 +159,13 @@ body {
 }
 
 #review {
-  width:190%;
+  width:180%;
   position: relative;
-  top:173%;
+  top:179%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* font-style: italic; */
+  font-size: 30px;
 }
-
 #restaurant-profile {
   display: inline-flex;
   justify-content: center;
