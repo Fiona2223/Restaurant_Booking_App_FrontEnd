@@ -40,15 +40,15 @@ const BookingFormComponent = ({restaurant}) => {
     }
 
     const creatingAlistOfAvailableTables = () => {
-         const AvailableTables = tableList.filter(table => table.bookingIds.length === 0);
+         const AvailableTables = tableList.filter(table => table.listOfBookings.length === 0);
          setAllAvailableTables(AvailableTables);
     }
    
     useEffect(() => {
         fetchTablesByRestaurantId(); 
         const currentDate = new Date();     
-        setSelectedDate(currentDate.toISOString().split('T')[0]);
-        setSelectedTime(`${currentDate.getHours()}: ${currentDate.getMinutes()}`);
+        setSelectedDate(currentDate);
+        setSelectedTime(currentDate);
       }, [])
 
       useEffect(() => {
@@ -57,13 +57,13 @@ const BookingFormComponent = ({restaurant}) => {
       }, [tableList])
 
       const handleDateChange = (date) =>{
-        const newDate = date.toISOString().split('T')[0];;
-        setSelectedDate(newDate);
+        const newDate = date;
+        setSelectedDate(newDate.toLocaleDateString());
       }
 
       const handleTimeChange = (time) =>{
-        const newTime = `${time.getHours()}: ${time.getMinutes()}`;
-        setSelectedTime(newTime);
+        const newTime = time;
+        setSelectedTime(newTime.toLocaleTimeString());
       }
 
     return ( <>

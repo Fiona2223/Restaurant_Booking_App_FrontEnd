@@ -13,7 +13,7 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
     const [listOfChosenTables, setListOfChosenTables] = useState([]);
 
     const [stateBooking, setStateBooking] = useState({
-        id: null,
+        // id: null,
         customerId: 1,
         customerName: "Yasmin",
         tableIds : [], //onSubmit: add the tableIds to this list
@@ -31,10 +31,11 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
     }
 
     const postBooking = async(booking) => {
+        console.log(booking);
       const response = await fetch("http://localhost:8080/bookings",{
           method: "POST",
           headers: {"Content-type" : "application/json"},
-          body : JSON.stringify({booking})
+          body : JSON.stringify(booking)
       });
       const savedBooking = await response.json();
       setCustomersBooking([...customersBooking, savedBooking]);
