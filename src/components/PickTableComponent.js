@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-const CUSTOMER_SERVER_URL = "http://localhost:8080/customer";
+const SERVER_URL = "http://localhost:8080/bookings";
 
 const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selectedTime}) => {
 
@@ -25,7 +25,7 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
 
 
     const fetchCustomerBookings = async() => {
-      const response = await fetch(`${CUSTOMER_SERVER_URL}/1/bookings`)
+      const response = await fetch(`${SERVER_URL}`)
       const jsonData = await response.json();
       setCustomersBooking(jsonData);
     }
@@ -34,13 +34,11 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
       const response = await fetch("http://localhost:8080/bookings",{
           method: "POST",
           headers: {"Content-type" : "application/json"},
-          body : JSON.stringify(booking)
+          body : JSON.stringify({booking})
       });
       const savedBooking = await response.json();
-    //   setCustomersBooking([...customersBooking, savedBooking]);
+      setCustomersBooking([...customersBooking, savedBooking]);
     }
-
-    // postBooking();
 
     useEffect(() => {
         // const tableButtons = allAvailableTables.map((table) => {
@@ -64,16 +62,10 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
     }
 
     useEffect(() => {
-        const numOfCurrentBookings = parseInt(customersBooking.length);
-        const newBookingId = numOfCurrentBookings + 1;
-        console.log(newBookingId);
-
+        // const lastId = customersBooking.length;
+        // const newBookingId = parseInt(lastId) + 1;
         let copiedStateBooking = {...stateBooking};
-        // TO-DO: get the correct id for this some how
-        // maybe do customerBookings.length + 1??- tried on line 62 & 63
-        // return NaN because customersBooking has failed to fetch because
-        // of a server-side error. - need to fix this first
-        copiedStateBooking.id = newBookingId;
+        // copiedStateBooking.id = newBookingId;
         copiedStateBooking.tableIds = listOfChosenTables;
         setStateBooking(copiedStateBooking);
     }, [listOfChosenTables])
@@ -103,13 +95,14 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
     //TO-DO: connect the modal:
     const handleReservationModal = () => {
         console.log("reservation made");
+        postBooking(stateBooking);
     }
 
     // get the table id of the table being clicked and add it to the newBooking object when submit reservation has been clicked
     // so this needs to be in the handleFormSubmit function??
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        postBooking(stateBooking);
+        
     }
 
     const handleRestartBooking = () => {
