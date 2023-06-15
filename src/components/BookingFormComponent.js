@@ -49,8 +49,8 @@ const BookingFormComponent = ({restaurant}) => {
     useEffect(() => {
         fetchTablesByRestaurantId(); 
         const currentDate = new Date();     
-        setSelectedDate(currentDate);
-        setSelectedTime(currentDate);
+        setSelectedDate(currentDate.toISOString().split('T')[0]);
+        setSelectedTime(currentDate.toISOString().split('T')[1].split('.')[0]);
       }, [])
 
       useEffect(() => {
@@ -60,12 +60,12 @@ const BookingFormComponent = ({restaurant}) => {
 
       const handleDateChange = (date) =>{
         const newDate = date;
-        setSelectedDate(newDate.toLocaleDateString());
+        setSelectedDate(newDate.toISOString().split('T')[0]);
       }
 
       const handleTimeChange = (time) =>{
         const newTime = time;
-        setSelectedTime(newTime.toLocaleTimeString());
+        setSelectedTime(newTime.toISOString().split('T')[1].split('.')[0]);
       }
 
     return ( <>
