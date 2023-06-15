@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import ConfirmationComponent from "../components/ConfirmationComponent";
 import CustomerComponent from "../components/CustomerComponent";
 import RestaurantProfileListComponent from "../components/RestaurantProfileListComponent";
 import MapComponent from "../components/MapComponent"
@@ -12,7 +13,8 @@ const RestaurantContainer = () => {
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
     const getCustomer = async () => {
-        const response = await fetch(`${CUSTOMER_SERVER_URL}`,{
+        const response = await fetch(`${CUSTOMER_SERVER_URL}`,
+        {
             method: "GET",
             headers:{"Content-Type": "application/json"} 
         })
@@ -42,10 +44,11 @@ const RestaurantContainer = () => {
   
     return ( 
             <>
-              <h1>Nearby Restaurants</h1>
               <CustomerComponent currentCustomer={currentCustomer} setCurrentCustomer={setCurrentCustomer}/>
               <RestaurantProfileListComponent listOfRestaurants = {filteredRestaurants} />   
               <MapComponent filterRestaurants={filterRestaurants}/>      
+
+
              
             </>
             )

@@ -1,5 +1,11 @@
+
 import { useEffect, useState } from "react";
 const CUSTOMER_SERVER_URL = "http://localhost:8080/customer";
+
+import { useState } from "react";
+import Modal from 'react-modal';
+import { useNavigate } from "react-router-dom";
+
 
 const PickTableComponent = ({allAvailableTables, restaurant}) => {
 
@@ -19,6 +25,7 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
         time: null, //"hh:mm:ss": this will be passed down from BookingFormComponent
         message: "Reservation Made!"
     })
+
 
     const fetchCustomerBookings = async() => {
       const response = await fetch(`${CUSTOMER_SERVER_URL}/1/bookings`)
@@ -57,6 +64,32 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
         // "you have [x] of people to seat"
         // create an array - handlebutton state click - store table object in an array state
         
+
+    const [isOpen, setIsOpen] = useState(false);
+    let navigate = useNavigate();
+
+
+    const handleOpenModal = () => {
+      setIsOpen(true);
+    };
+  
+    const handleCloseModal = () => {
+      setIsOpen(false);
+      navigate("/")
+    };
+
+    const handleMakeAnotherReservation = () => {
+        navigate("/");
+    };
+
+    const handleViewBookingDetails = () => {
+        navigate("/confirmation")
+    }
+  
+    const handleSubmitReservation = () => {
+      handleOpenModal();
+    };
+    
 
         setListOfTablesToChooseFrom(tableButtons);
         fetchCustomerBookings();
@@ -121,6 +154,19 @@ const PickTableComponent = ({allAvailableTables, restaurant}) => {
             <button onClick={handleDisplayOptions}>Submit</button>
             {displayTableOptions ? <div> {listOfTablesToChooseFrom} <button onClick={handleReservationModal}>Submit Reservation</button> </div>: null}
             </form>
+
+            <div>
+      <button onClick={handleSubmitReservation}>Submit Reservation</button>
+      <Modal id="modal" isOpen={isOpen} onRequestClose={handleCloseModal}>
+        <h2>Reservation Successful!</h2>
+        <p>Your reservation has been confirmed.</p>
+        <div><button id="close-modal-btn" onClick={handleCloseModal}>X</button></div>
+        <button id="view-booking-btn" onClick={handleViewBookingDetails}>View Booking Details</button>
+        <button id="make-another-btn" onClick={handleMakeAnotherReservation}>Make Another Reservation</button>
+      </Modal>
+    </div>
+      
+            {listOfTablesToChooseFrom}
 
     </> );
 }
