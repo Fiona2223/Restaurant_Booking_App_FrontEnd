@@ -37,7 +37,7 @@ const Map = ({filterRestaurants}) => {
       <div >
         <form id="customer-location-form" onSubmit={handleLocationSubmit}>
           <input id="location-input" type="text" name="location" placeholder="Enter your current location" />
-          <button id="enter-location-button"type="submit">Enter</button>
+          <button id="enter-location-input-button"type="submit">Enter</button>
         </form>
 
         <div id="map">

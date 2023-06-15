@@ -23,7 +23,7 @@ const RestaurantProfileComponent = ({restaurant}) => {
                     {restaurant.name}, {restaurant.location}
                     </Link>
                     ) : 
-                    ( <p>More info...</p>
+                    ( <p id="review">{restaurant.review}</p>
                     )}
                 <button id="moreRestaurantInfo" onClick={handleClick}> {">"} </button>
             </div>

@@ -62,7 +62,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 300px;
 }
-#enter-location-input-btn {
+#enter-location-input-button {
   font-size: larger;
   position: absolute;
   bottom: 0.5%;
@@ -70,7 +70,7 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bold;
 }
-#enter-location-input-btn:hover {
+#enter-location-input-button:hover {
   background-color: rgb(64, 253, 64);
   font-weight: bolder; 
   /* width:28%; */
@@ -145,6 +145,11 @@ body {
   border-color: transparent transparent rgba(46, 161, 163, 0.465);
 }
 
+#review {
+  width:200%;
+  position: relative;
+  top:30%;
+}
 
 #restaurant-profile {
   display: inline-flex;
