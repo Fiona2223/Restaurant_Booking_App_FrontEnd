@@ -33,6 +33,7 @@ const Map = ({filterRestaurants}) => {
   };
 
   return (
+
     <LoadScript googleMapsApiKey="AIzaSyAgmr5dRTvUA9AizSfjGLRQQk0yNmO185M">
       <div>
         <form onSubmit={handleLocationSubmit}>
