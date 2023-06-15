@@ -51,6 +51,7 @@ const ConfirmationComponent = ({customer, setCustomerBooking, customerBooking, c
             <h2>Location: {lastBookingObject[0].restaurant.location}</h2>
             <h2>Your booking id: {lastBookingObject[0].id}</h2>
             <h3>Please retain this id for when you arrive</h3>
+            <Link to="/">Go to homepage</Link>
             <button onClick={handleClick}> See all your bookings</button> </div>: null}  
     </> );
 }
