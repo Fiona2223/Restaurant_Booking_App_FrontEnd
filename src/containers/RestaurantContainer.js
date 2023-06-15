@@ -34,7 +34,6 @@ const RestaurantContainer = () => {
   
     return ( 
             <>
-              <h1>Nearby Restaurants</h1>
               <CustomerComponent currentCustomer={currentCustomer} setCurrentCustomer={setCurrentCustomer}/>
               <RestaurantProfileListComponent listOfRestaurants = {listOfRestaurants} />       
              

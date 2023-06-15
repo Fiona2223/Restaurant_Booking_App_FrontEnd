@@ -159,12 +159,14 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
             </form>
 
             <div>
-      <Modal isOpen={isOpen} onRequestClose={handleCloseModal}>
+
+      <button onClick={handleSubmitReservation}>Submit Reservation</button>
+      <Modal id="modal" isOpen={isOpen} onRequestClose={handleCloseModal}>
         <h2>Reservation Successful!</h2>
         <p>Your reservation has been confirmed.</p>
-        <div><button onClick={handleCloseModal}>X</button></div>
-        <button onClick={handleViewBookingDetails}>View Booking Details</button>
-        <button onClick={handleMakeAnotherReservation}>Make Another Reservation</button>
+        <div><button id="close-modal-btn" onClick={handleCloseModal}>X</button></div>
+        <button id="view-booking-btn" onClick={handleViewBookingDetails}>View Booking Details</button>
+        <button id="make-another-btn" onClick={handleMakeAnotherReservation}>Make Another Reservation</button>
       </Modal>
     </div>
       
