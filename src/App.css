@@ -5,6 +5,7 @@ body {
 
 }
 
+
 #wallet-item:hover, 
 #restaurant-profile:hover {
     transform: scale(1.05);
@@ -82,6 +83,19 @@ body {
   margin-bottom: 1%;
 }
 /* css for the restaurant list */
+
+#restaurant-profile:after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent rgba(46, 161, 163, 0.465) transparent transparent;
+  border-radius: 50%;
+}
+
 #restaurant-profile {
   display: inline-flex;
   justify-content: center;
