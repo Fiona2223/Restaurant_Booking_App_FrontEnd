@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Modal from 'react-modal';
 import { useNavigate } from "react-router-dom";
+import "../Booking.css";
 
 const CUSTOMER_SERVER_URL = "http://localhost:8080/customer";
 const SERVER_URL = "http://localhost:8080/bookings"
@@ -98,7 +99,10 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
         const tableButtons = allAvailableTables
         .sort()
         .map((table) => {
-            return <button key={table.numberOfSeats} onClick={() => {handleIncrementTableSeatsCounter(table); setTableSeatsCounter((previousValue) => previousValue + table.numberOfSeats)}}>{table.numberOfSeats}</button>
+            return <button className="tableButton"key={table.numberOfSeats} onClick={() => {handleIncrementTableSeatsCounter(table); setTableSeatsCounter((previousValue) => previousValue + table.numberOfSeats)}}>{table.numberOfSeats} <div className="tableButton-leg-right"></div>
+            <div className="tableButton-leg-left"></div>
+            <div className="tableButton-leg-right2"></div> 
+            <div className="tableButton-leg-left2"></div></button>
         })
 
         setListOfTablesToChooseFrom(tableButtons);
@@ -158,7 +162,7 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
 
 
     return ( <>
-            <h3>How many people?</h3>
+            <h3 className="People">How many people?</h3>
             <form onSubmit={handleFormSubmit}>
                 <input
                  type="number"
@@ -167,10 +171,14 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
                  id="numberOfPeople"
                  />
 
-            <button onClick={handleDisplayOptions}>Enter</button>
-            {displayTableOptions ? <div> {listOfTablesToChooseFrom} </div>: null}
-            {showRestartButton ? <button onClick={handleRestartBooking}>Restart Booking</button> : null}
-            {buttonClicked ? <button onClick={handleSubmitReservation}>Submit Reservation</button>: null}
+            <button onClick={handleDisplayOptions} className="EnterButton">Enter</button>
+            {displayTableOptions ? <div className="TableBoxes"> {listOfTablesToChooseFrom} </div>: null}
+            <div className="tableButton-leg-right"></div>
+            <div className="tableButton-leg-left"></div>
+            <div className="tableButton-leg-right2"></div> 
+            <div className="tableButton-leg-left2"></div>
+            {showRestartButton ? <button onClick={handleRestartBooking} className="RestartButton">Restart Booking</button> : null}
+            {buttonClicked ? <button onClick={handleSubmitReservation}className="SubmitButton">Submit Reservation</button>: null}
 
             </form>
 
