@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import { useNavigate } from "react-router-dom";
 
 const CUSTOMER_SERVER_URL = "http://localhost:8080/customer";
+const SERVER_URL = "http://localhost:8080/bookings"
 
 
 const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selectedTime}) => {
@@ -31,37 +32,13 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
     })
 
 
-    const fetchCustomerBookings = async() => {
-      const response = await fetch(`${CUSTOMER_SERVER_URL}/1/bookings`)
-      const jsonData = await response.json();
-      setCustomersBooking(jsonData);
-    }
-
-
-    // this needs to be passed down to the PickTableComponent: so this needs to be done in the
-    // react router to be passed down to PickTableComponent.
-
-    const postBooking = async(booking) => {
-      const response = await fetch("http://localhost:8080/bookings",{
-          method: "POST",
-          headers: {"Content-type" : "application/json"},
-          body : JSON.stringify(booking)
-      });
-      const savedBooking = await response.json();
-    //   setCustomersBooking([...customersBooking, savedBooking]);
-    }
-
-    // postBooking();
-
-
-    
-
-    useEffect(() => {
-        console.log("hello world!");
-        const tableButtons = allAvailableTables.map((table) => {
-            // return <button key={table.id} onClick={() => {handleButtonClickedStateChange(table); setTableSeatsCounter((previousValue) => previousValue - table.numberOfSeats)}}>{table.numberOfSeats}</button>
-            return <button key={table.id} onClick={ ()=>{handleButtonClickedStateChange(table)}}>{table.numberOfSeats}</button>
-        })
+    // useEffect(() => {
+    //     console.log("hello world!");
+    //     const tableButtons = allAvailableTables.map((table) => {
+    //         // return <button key={table.id} onClick={() => {handleButtonClickedStateChange(table); setTableSeatsCounter((previousValue) => previousValue - table.numberOfSeats)}}>{table.numberOfSeats}</button>
+    //         return <button key={table.id} onClick={ ()=>{handleButtonClickedStateChange(table)}}>{table.numberOfSeats}</button>})
+    //     },[])
+        
         
         // if number of seats picked == size of party than make size appear 
         // if state of seats picked is >= display submit button until then disable it 
