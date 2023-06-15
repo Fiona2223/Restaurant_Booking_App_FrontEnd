@@ -14,8 +14,10 @@ const RestaurantProfileComponent = ({restaurant}) => {
     return ( <>
             <div id="restaurant-profile">
             <Link to={`/restaurants/${restaurant.id}`} > {restaurant.name}, {restaurant.location}</Link>
-            {/* /* adding tiktok video recommendations/} */}
+            {/* <p> "restaurant info text"</p> */}
+            <button id="moreRestaurantInfo"> {">"} </button>
             </div>    
+
       
     </> );
 }

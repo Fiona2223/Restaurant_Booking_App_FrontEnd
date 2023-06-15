@@ -78,7 +78,7 @@ body {
 /* css for the restaurant list */
 
 #restaurant-profile:hover {
-  transform: scale(1.15);
+  transform: scale(1.25);
   transition: all 0.2s ease-in-out;
 }
 
@@ -96,8 +96,13 @@ body {
   border-style: solid;
   border-color: transparent transparent rgba(46, 161, 163, 0.465);
 }
-
-
+  #moreRestaurantInfo{
+    border-style: none;
+    background-color: rgba(106, 185, 186, 0.465);
+    width: 0px;
+    height: 0px;
+    font-size: 100px;
+  }
 
 #restaurant-profile {
   display: inline-flex;
