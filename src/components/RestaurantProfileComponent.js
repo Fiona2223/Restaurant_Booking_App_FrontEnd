@@ -4,9 +4,20 @@ import { Link } from "react-router-dom";
 
 const RestaurantProfileComponent = ({restaurant}) => {
     const [moreInfoButtonClicked, setMoreInfoButtonClicked] = useState(false);
+    
+    const [person, setPerson] = useState(null); // null - more predictable than moulding container around data
+    
+    const fetchPerson = async () => {
+        const response = await fetch("https://dog.ceo/api/breeds/image/random");
+        const jsonData = await response.json()
+        setPerson(jsonData)
+    }
+
+    useEffect(() =>{
+        fetchPerson();
+    }, []) 
+
     useEffect (()=>{
-
-
     }
      ,[restaurant])
 
@@ -23,7 +34,13 @@ const RestaurantProfileComponent = ({restaurant}) => {
                     {restaurant.name}, {restaurant.location}
                     </Link>
                     ) : 
-                    ( <p id="review">{restaurant.review}</p>
+                    (  <>
+                        <div id="review">
+                         {/* style="background-image: {dog.message}"  */}
+                        <p>{restaurant.review} {fetchPerson}</p>
+                        <img id="person" src={person.message} alt="person" />
+                        </div>
+                        </>
                     )}
                 <button id="moreRestaurantInfo" onClick={handleClick}> {">"} </button>
             </div>
