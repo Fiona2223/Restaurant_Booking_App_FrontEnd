@@ -77,6 +77,21 @@ body {
 }
 /* css for the restaurant list */
 
+#more-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+#restaurant-name-location {
+  margin-bottom: 10px; 
+  margin-right: 10px;
+  text-decoration: none; 
+}
+
+
 #restaurant-profile:hover {
   transform: scale(1.25);
   transition: all 0.2s ease-in-out;
@@ -86,13 +101,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius:  60%;
+  border-radius:  50%;
   border-style: none;
   background-color: rgba(106, 185, 186, 0.465);
   width: 85px;
   height: 85px;
   text-align: center;
-  font-size: 95px;
+  font-size: 85px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: black;
   text-decoration: none;
