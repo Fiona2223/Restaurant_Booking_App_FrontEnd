@@ -12,11 +12,16 @@ const RestaurantProfileComponent = ({restaurant}) => {
 
 
     return ( <>
-            <div id="restaurant-profile">
-            <Link to={`/restaurants/${restaurant.id}`} > {restaurant.name}, {restaurant.location}</Link>
-            {/* <p> "restaurant info text"</p> */}
-            <button id="moreRestaurantInfo"> {">"} </button>
-            </div>    
+            <>
+        <div id="restaurant-profile">
+            <div id="more-info-container">
+                <Link to={`/restaurants/${restaurant.id}`} id="restaurant-name-location">
+                {restaurant.name}, {restaurant.location}
+                </Link>
+                <button id="moreRestaurantInfo"> {"^"} </button>
+            </div>
+        </div>    
+  </>
 
       
     </> );
