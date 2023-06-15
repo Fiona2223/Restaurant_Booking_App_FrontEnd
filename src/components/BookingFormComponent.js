@@ -1,9 +1,10 @@
 import TableListComponent from "../components/TableListComponent";
-import PickTableComponent from "./PickTableComponent";
 
 import { useState, useEffect } from "react";
 
 import DatePicker from 'react-datepicker';
+import TimePicker from 'react-time-picker';
+import PickTableComponent from "./PickTableComponent";
 import "react-datepicker/dist/react-datepicker.css";
 import "../Booking.css";
 
@@ -68,6 +69,8 @@ const BookingFormComponent = ({restaurant}) => {
       }
 
     return ( <>
+
+
                 <div className="Container">
                 <h2 className="title">{restaurant.name}</h2>
                 <div>
@@ -94,6 +97,7 @@ const BookingFormComponent = ({restaurant}) => {
                 {showPickTableComponent ? <PickTableComponent allAvailableTables={allAvailableTables} restaurant={restaurant} selectedDate={selectedDate} selectedTime={selectedTime}/> :  <div>
                 <TableListComponent tableList={tableList} allAvailableTables={allAvailableTables} showAllTables={showAllTables}/> <button onClick={handleMakeReservation} className="ReservationButton">Make Reservation</button></div>}
                 </div>
+
             
     </> );
 }

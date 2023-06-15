@@ -1,9 +1,17 @@
 body {
-  background-color: beige;
+  background: linear-gradient(to right, #f3f3f3 0%, beige 100%);
 
 /* CSS FOR THE WALLET PAGE */
 
 }
+
+
+#wallet-item:hover, 
+#restaurant-profile:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
 #wallet-item{
   border-radius:20%;
   background: rgb(79, 169, 169);
@@ -75,6 +83,19 @@ body {
   margin-bottom: 1%;
 }
 /* css for the restaurant list */
+
+#restaurant-profile:after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent rgba(46, 161, 163, 0.465) transparent transparent;
+  border-radius: 50%;
+}
+
 #restaurant-profile {
   display: inline-flex;
   justify-content: center;
