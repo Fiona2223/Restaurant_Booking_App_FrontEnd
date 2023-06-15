@@ -1,4 +1,8 @@
+
 import { useEffect, useState } from "react";
+import Modal from 'react-modal';
+import { useNavigate } from "react-router-dom";
+
 const SERVER_URL = "http://localhost:8080/bookings";
 
 const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selectedTime}) => {
@@ -23,6 +27,34 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
         message: "Reservation Made!"
     })
 
+    const [isOpen, setIsOpen] = useState(false);
+    let navigate = useNavigate();
+
+
+    const handleOpenModal = () => {
+      setIsOpen(true);
+    };
+  
+    const handleCloseModal = () => {
+      setIsOpen(false);
+      navigate("/")
+    };
+
+    const handleMakeAnotherReservation = () => {
+        navigate("/");
+    };
+
+    const handleViewBookingDetails = () => {
+        navigate("/confirmation")
+    }
+  
+    const handleSubmitReservation = () => {
+      handleOpenModal();
+      postBooking(stateBooking);
+    };
+    
+      
+      
 
     const fetchCustomerBookings = async() => {
       const response = await fetch(`${SERVER_URL}`)
@@ -93,11 +125,11 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
         setCounterNumberOfPeople(input.value);
     }
 
-    //TO-DO: connect the modal:
-    const handleReservationModal = () => {
-        console.log("reservation made");
-        postBooking(stateBooking);
-    }
+//     //TO-DO: connect the modal:
+//     const handleReservationModal = () => {
+//         console.log("reservation made");
+       
+//     }
 
     // get the table id of the table being clicked and add it to the newBooking object when submit reservation has been clicked
     // so this needs to be in the handleFormSubmit function??
@@ -123,8 +155,20 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
             <button onClick={handleDisplayOptions}>Enter</button>
             {displayTableOptions ? <div> {listOfTablesToChooseFrom} </div>: null}
             {showRestartButton ? <button onClick={handleRestartBooking}>Restart Booking</button> : null}
-            {buttonClicked ? <button onClick={handleReservationModal}>Submit Reservation</button> : null}
+            {buttonClicked ? <button onClick={handleSubmitReservation}>Submit Reservation</button>: null}
             </form>
+
+            <div>
+      <Modal isOpen={isOpen} onRequestClose={handleCloseModal}>
+        <h2>Reservation Successful!</h2>
+        <p>Your reservation has been confirmed.</p>
+        <div><button onClick={handleCloseModal}>X</button></div>
+        <button onClick={handleViewBookingDetails}>View Booking Details</button>
+        <button onClick={handleMakeAnotherReservation}>Make Another Reservation</button>
+      </Modal>
+    </div>
+      
+            {listOfTablesToChooseFrom}
 
     </> );
 }
