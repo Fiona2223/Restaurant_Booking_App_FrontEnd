@@ -34,13 +34,14 @@ const Map = ({filterRestaurants}) => {
 
   return (
     <LoadScript googleMapsApiKey="AIzaSyAgmr5dRTvUA9AizSfjGLRQQk0yNmO185M">
-      <div>
-        <form onSubmit={handleLocationSubmit}>
-          <input type="text" name="location" placeholder="Enter a location" />
-          <button type="submit">Submit</button>
+      <div >
+        <form id="customer-location-form" onSubmit={handleLocationSubmit}>
+          <input id="location-input" type="text" name="location" placeholder="Enter your current location" />
+          <button id="enter-location-button"type="submit">Enter</button>
         </form>
 
-        <GoogleMap
+        <div id="map">
+        <GoogleMap 
           mapContainerStyle={containerStyle}
           center={markerPosition || defaultCenter}
           zoom={10}
@@ -48,7 +49,9 @@ const Map = ({filterRestaurants}) => {
           {markerPosition && <Marker position={markerPosition} />}
         </GoogleMap>
       </div>
+      </div>
     </LoadScript>
+
   );
 };
 
