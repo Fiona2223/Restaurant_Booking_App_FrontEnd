@@ -33,19 +33,44 @@
 }
 
 
-.Tables{
+.Table{
 
+  display: inline-block;
   border: 1px solid rgb(168, 148, 112);
   padding: 30px;
   background-color: rgb(170, 141, 104);
   position: relative;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  /* left: 10%; */
+  margin-left: 10%;
+  margin-bottom: 10%;
+  margin-right: 10%;
+  /* right: 20%; */
+  width: 60px;
+  height: 100px;
+  text-align: center;
+
+}
+
+.Table:after{
+    width: 62px;
+    height: 102px;
+
+    content: "";
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  /* border-width: 15px;
+  border-style: solid;
+  border-color: transparent rgba(46, 161, 163, 0.465) transparent transparent;
+  border-radius: 50%; */
 }
 
 .table-leg-right{
     background-color: rgb(97, 82, 75); /* Adjust the color of the table legs */
-    width: 20px;
-    height: 10px; /* Adjust the height of the table legs */
+    width: 30px;
+    height: 18px; /* Adjust the height of the table legs */
     position: absolute;
     /* margin-top: 10px; */
     /* margin-left: 60px; */
@@ -53,10 +78,16 @@
     left: 110%;
     /* right: 12%; */
 }
+
+.table-leg-right:hover{
+    width: 31px;
+    height: 19px;
+}
+
 .table-leg-right2{
     background-color: rgb(97, 82, 75); /* Adjust the color of the table legs */
-    width: 20px;
-    height: 10px; /* Adjust the height of the table legs */
+    width: 30px;
+    height: 18px; /* Adjust the height of the table legs */
     position: absolute;
     /* margin-top: 10px; */
     /* margin-left: 60px; */
@@ -67,8 +98,8 @@
 
 .table-leg-left{
     background-color: rgb(97, 82, 75); /* Adjust the color of the table legs */
-    width: 20px;
-    height: 10px; /* Adjust the height of the table legs */
+    width: 30px;
+    height: 18px; /* Adjust the height of the table legs */
     position: absolute;
     /* margin-top: 10px; */
     /* margin-left: 60px; */
@@ -79,8 +110,8 @@
 
 .table-leg-left2{
     background-color: rgb(97, 82, 75); /* Adjust the color of the table legs */
-    width: 20px;
-    height: 10px; /* Adjust the height of the table legs */
+    width: 30px;
+    height: 18px; /* Adjust the height of the table legs */
     position: absolute;
     /* margin-top: 10px; */
     /* margin-left: 60px; */
@@ -92,7 +123,7 @@
 
 .ReservationButton{
     position: absolute;
-    top: 60%;
+    top: 120%;
     left: 45%;
 }
 
@@ -100,4 +131,14 @@
     background-color: rgb(246, 241, 232);
     padding-top: 10px;
     padding-bottom: 50px;
+}
+
+.allTable{
+    background-color: rgb(227, 128, 189);
+    color: blueviolet;
+}
+
+#availableTable{
+    background-color: aqua;
+
 }

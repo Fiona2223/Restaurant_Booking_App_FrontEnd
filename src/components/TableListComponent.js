@@ -7,11 +7,11 @@ import "../Booking.css";
 const TableListComponent = ({restaurant, tableList, allAvailableTables, showAllTables}) => {
 
     const listOfTables = tableList.map((table) => {
-        return <TableComponent table={table} key={table.id} showAllTables={showAllTables}/>
+        return <TableComponent class="allTable" table={table} key={table.id} showAllTables={showAllTables}/>
     })
 
     const listOfAvailableTables = allAvailableTables.map((availableTable) => {
-        return <TableComponent availableTable={availableTable} key={availableTable.id} showAllTables={showAllTables}/>
+        return <TableComponent id="availableTable" availableTable={availableTable} key={availableTable.id} showAllTables={showAllTables}/>
     })
 
     return ( 
