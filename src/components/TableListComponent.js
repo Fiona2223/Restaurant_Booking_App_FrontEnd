@@ -1,6 +1,7 @@
 import { tab } from "@testing-library/user-event/dist/tab";
 import { useState, useEffect } from "react";
 import TableComponent from "../components/TableComponent";
+import "../Booking.css";
 
 
 const TableListComponent = ({restaurant, tableList, allAvailableTables, showAllTables}) => {
@@ -13,8 +14,11 @@ const TableListComponent = ({restaurant, tableList, allAvailableTables, showAllT
         return <TableComponent availableTable={availableTable} key={availableTable.id} showAllTables={showAllTables}/>
     })
 
-    return ( <>
+    return ( 
+    <>
+        <div className="TablesContainer">
             {showAllTables ? listOfTables : listOfAvailableTables}
+        </div>
     </> );
 }
  

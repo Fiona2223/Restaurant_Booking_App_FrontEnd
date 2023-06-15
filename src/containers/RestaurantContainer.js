@@ -12,6 +12,7 @@ const RestaurantContainer = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
+
     const getCustomer = async () => {
         const response = await fetch(`${CUSTOMER_SERVER_URL}`,
         {
@@ -47,7 +48,6 @@ const RestaurantContainer = () => {
               <CustomerComponent currentCustomer={currentCustomer} setCurrentCustomer={setCurrentCustomer}/>
               <RestaurantProfileListComponent listOfRestaurants = {filteredRestaurants} />   
               <MapComponent filterRestaurants={filterRestaurants}/>      
-
 
              
             </>
