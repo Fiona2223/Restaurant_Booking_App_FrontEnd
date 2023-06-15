@@ -58,7 +58,7 @@ const router = createBrowserRouter([
       element: (
         <WalletContainer/>
       )
-    }
+    },
 
     {
       path: "map",
