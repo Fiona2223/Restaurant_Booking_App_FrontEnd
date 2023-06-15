@@ -4,6 +4,13 @@ body {
 /* CSS FOR THE WALLET PAGE */
 
 }
+
+#wallet-item:hover, 
+#restaurant-profile:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
 #wallet-item{
   border-radius:20%;
   background: rgb(79, 169, 169);
