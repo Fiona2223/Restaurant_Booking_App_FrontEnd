@@ -42,13 +42,18 @@ const router = createBrowserRouter([
     },
 
     {
-      path:"confirmation",
+      path:"bookings",
       element: (
         <CustomerComponent/>
       ),
     },
     {
       path:"confirmation",
+      loader: async() => {
+        const response = await fetch("http://localhost:8080/customer");
+        const data = await response.json();
+        return data[0];
+      },
       element: (
         <ConfirmationContainer/>
       ),

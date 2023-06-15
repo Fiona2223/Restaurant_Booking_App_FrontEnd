@@ -93,7 +93,8 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
         // const tableButtons = allAvailableTables.map((table) => {
         //     return <button key={table.id} onClick={() => {handleIncrementTableSeatsCounter(table); setTableSeatsCounter((previousValue) => previousValue + table.numberOfSeats)}}>{table.numberOfSeats}</button>
         // })
-
+        console.log(selectedDate);
+        console.log(selectedTime);
         const tableButtons = allAvailableTables
         .sort()
         .map((table) => {
