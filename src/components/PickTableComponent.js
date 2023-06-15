@@ -161,6 +161,7 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
             <form onSubmit={handleFormSubmit}>
                 <input
                  type="number"
+                 min="0"
                  placeholder="Enter"
                  id="numberOfPeople"
                  />
@@ -174,7 +175,7 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
 
             <div>
 
-      <button onClick={handleSubmitReservation}>Submit Reservation</button>
+    
       <Modal id="modal" isOpen={isOpen} onRequestClose={handleCloseModal}>
         <h2>Reservation Successful!</h2>
         <p>Your reservation has been confirmed.</p>
@@ -183,8 +184,6 @@ const PickTableComponent = ({allAvailableTables, restaurant, selectedDate, selec
         <button id="make-another-btn" onClick={handleMakeAnotherReservation}>Make Another Reservation</button>
       </Modal>
     </div>
-      
-            {listOfTablesToChooseFrom}
 
     </> );
 }
