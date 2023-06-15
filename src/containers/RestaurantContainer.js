@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import CustomerComponent from "../components/CustomerComponent";
 import RestaurantProfileListComponent from "../components/RestaurantProfileListComponent";
+import MapComponent from "../components/MapComponent"
 
 const CUSTOMER_SERVER_URL = "http://localhost:8080/customer";
 
@@ -34,7 +35,8 @@ const RestaurantContainer = () => {
             <>
               <h1>Nearby Restaurants</h1>
               <CustomerComponent currentCustomer={currentCustomer} setCurrentCustomer={setCurrentCustomer}/>
-              <RestaurantProfileListComponent listOfRestaurants = {listOfRestaurants} />           
+              <RestaurantProfileListComponent listOfRestaurants = {listOfRestaurants} />   
+              <MapComponent/>      
              
             </>
             )

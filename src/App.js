@@ -12,6 +12,7 @@ import TableListComponent from './components/TableListComponent';
 import TimeAndDatePickedComponent from './components/TimeAndDatePickedComponent';
 import RestaurantContainer from './containers/RestaurantContainer';
 import RestaurantComponent from './components/RestaurantComponent';
+import MapComponent from './components/MapComponent';
 
 const SERVER_URL = "http://localhost:8080";
 const router = createBrowserRouter([
@@ -44,6 +45,13 @@ const router = createBrowserRouter([
       path: "customer",
       element: (
         <CustomerComponent/>
+      ),
+    },
+
+    {
+      path: "map",
+      element: (
+        <MapComponent/>
       ),
     },
 
