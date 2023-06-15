@@ -1,5 +1,5 @@
 body {
-  background-color: beige;
+  background: linear-gradient(to right, #f3f3f3 0%, beige 100%);
 
 /* CSS FOR THE WALLET PAGE */
 
