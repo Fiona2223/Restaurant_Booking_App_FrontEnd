@@ -3,7 +3,7 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const Map = ({filterRestaurants}) => {
   const containerStyle = {
-    width: '1500px',
+    width: '1800px',
     height: '500px'
   };
 
