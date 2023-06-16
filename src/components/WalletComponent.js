@@ -7,11 +7,6 @@ const WalletComponent = ({ booking }) => {
     return `${reducer} ${table.id}`;
   }, "");
 
-  useEffect(() => {
-    console.log(booking);
-    console.log(booking.listOfTables);
-    console.log(booking.listOfTables[2].id);
-  }, [booking]);
 
   return (
     <>
