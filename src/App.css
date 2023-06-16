@@ -1,38 +1,300 @@
-.App {
+body {
+  background:#f1e9e3;
+
+/* CSS FOR THE WALLET PAGE */
+
+}
+
+#wallet-item{
+  /* border-radius:20%; */
+  background: #9e8075;
+  border-color: #a27869;
+  border-style:inset;
+  /* margin-bottom: 50%;
+  margin-top: 5%; */
   text-align: center;
+  color: #2a1b15;
+  width:35%;
+  justify-self: center;
+  position:relative;
+  left: 32%;
+  top: 20%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+
+}
+/* :hover #wallet-item{
+  margin-bottom: 5%;
+  margin-top: 1%;
+} */
+#extra-booking-info {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#wallet-container {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+  font-size:larger;
+  padding: 2%;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#map{
+  position:relative;
+ 
+  max-width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#customer-location-form {
+  position: absolute;
+  display: flex;
+ justify-content: center;
+  font-size: larger;
+  margin: 500px auto auto auto;
+  height: 50px;
+  
+
+}
+#location-input {
+  font-size: medium;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 500px;
+  position: relative;
+  left: 80%;
+  top: 30%;
+}
+#enter-location-input-button {
+  --color: #ee712b;
+  font-family: inherit;
+  display: inline-block;
+  width: 8em;
+  height: 2.6em;
+  line-height: 2.5em;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color);
+  transition: color .5s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--color);
+  left: 80%;
+}
+#enter-location-input-button:hover {
+  color: #c25d26;
+}
+
+#enter-location-input-button:before {
+  top: 100%;
+  left: 100%;
+  transition: all .7s;
+ }
+ 
+ #enter-location-input-button:hover:before {
+  top: -30px;
+  left: -30px;
+ }
+ 
+ #enter-location-input-button:active:before {
+  background: #a3480c;
+  transition: background 0s;
+ }
+
+#customer-title {
+  display: flex;
+  justify-content: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+  font-size: 55px;
+  margin-bottom: 1%;
+}
+/* css for the restaurant list */
+
+#more-info-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* margin-right: 10px; */
+}
+
+#restaurant-name-location {
+  margin-bottom: 5px; 
+  margin-right: 10px;
+  text-decoration: none; 
+  color: rgb(193, 56, 56);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  padding: 2px 10px;
+  font-size: larger;
+}
+
+#person {
+  position:relative;
+  bottom:91%;
+  /* right: %; */
+  width: 200px;
+  height: 250px;
+  opacity: 80%;
+  border-radius: 50%;
+}
+
+
+#restaurant-profile:hover {
+  transform: scale(1.10);
+  transition: all 0.2s ease-in-out;
+}
+
+#moreRestaurantInfo {
+
+  
+ 
+} 
+
+/* #moreRestaurantInfo:hover {
+  transform: scale(1.10); 
+  transition: all 0.2s ease-in-out;
+}
+
+#moreRestaurantInfo:after {
+  content: "";
+  position: relative;
+  left: 20px; 
+  top: 400%;
+  transform: translateY(-50%); 
+  border-width: 0; 
+  border-style: solid;
+  border-color: transparent transparent rgba(46, 161, 163, 0.465);
+}
+
+#review {
+  width:180%;
+  position: relative;
+  top:179%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* font-style: italic; */
+  /* font-size: 30px; */
+/* } */
+#restaurant-profile {
+  transition: all 0.3s ease-in-out;
+  font-family: "Dosis", sans-serif;
+  display: inline-flex;
+  justify-content: center;
+
+  border-style: outset;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  font-size: 35px;
+  background-image: linear-gradient(135deg, #feb692 0%, #ea5455 100%);
+  box-shadow: 0 20px 30px -6px rgba(238, 103, 97, 0.5);
+  outline: none;
+  cursor: pointer;
+  border: none;
+  font-size: 24px;
+  
+  color: black;
+  text-decoration: none;
+  
+  position: relative;
+  left: 150px;
+  top:50px;
+  bottom: 10px;
+  right:30px; 
+
+  padding: 6%;
+  margin-top: 3%;
+  margin-bottom: 2%;
+  margin-left: 4%;
+  margin-right: 4%;
+  background-color: rgba(163, 102, 46, 0.465);
+}
+a:link {
+  text-decoration: none;
+  color: black;
+}
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+
+}
+
+/* CSS FOR THE MODAL/ pick-table compoment */
+#modal {
+  width:350px;
+  height: 300px;
+  display: grid;
+  justify-content: center;
+
+  position: relative;
+  top:30%;
+  left:40%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#make-another-btn {
+  width:110px;
+  height: 70px;
+  position:relative;
+  left:-15%;
+  font-size: 15px;
+  padding: 5px;
+  margin-left: 5%;
+  background-color: rgba(34, 123, 125, 0.774);
   color: white;
+  font-weight: 700;
+}
+#make-another-btn:hover {
+  box-shadow: 0px 0px 5px #333;
+  color: rgb(81, 39, 5);
+  background-color: #f1e9e3;
+}
+#close-modal-btn {
+  position: relative;
+  left: 110%;
+  bottom: 400%;;
+  color:black;
+  background-color: white;
+  border-style: none;
+  font-size: x-large;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+#close-modal-btn:hover {
+  color: red;
+  font-weight: 700;
+ 
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#view-booking-btn {
+  width:110px;
+  height: 70px;
+  position:relative;
+  left: 72%;
+  font-size: 15px;
+  top:98%;
+  margin-right: 5%;
+  padding: 5px;
+  background-color: rgba(34, 123, 125, 0.774);
+  color: white;
+  font-weight: 700;
 }
+#view-booking-btn:hover {
+  box-shadow: 0px 0px 5px #333;
+  background-color: #f1e9e3;
+  color: rgb(81, 39, 5);
+
+}
+
