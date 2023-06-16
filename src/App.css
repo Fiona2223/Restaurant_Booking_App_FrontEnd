@@ -6,12 +6,14 @@ body {
 }
 
 #wallet-item{
-  border-radius:20%;
-  background: rgb(79, 169, 169);
+  /* border-radius:20%; */
+  background: #9e8075;
+  border-color: #a27869;
   border-style:inset;
   /* margin-bottom: 50%;
   margin-top: 5%; */
   text-align: center;
+  color: #2a1b15;
   width:35%;
   justify-self: center;
   position:relative;
@@ -251,8 +253,8 @@ a:active {
 }
 #make-another-btn:hover {
   box-shadow: 0px 0px 5px #333;
-  color: rgb(12, 255, 12);
-  background-color: rgb(34, 123, 125);;
+  color: rgb(81, 39, 5);
+  background-color: #f1e9e3;
 }
 #close-modal-btn {
   position: relative;
@@ -287,8 +289,8 @@ a:active {
 }
 #view-booking-btn:hover {
   box-shadow: 0px 0px 5px #333;
-  background-color: rgb(34, 123, 125);
-  color: rgb(12, 255, 12);
+  background-color: #f1e9e3;
+  color: rgb(81, 39, 5);
 
 }
 
