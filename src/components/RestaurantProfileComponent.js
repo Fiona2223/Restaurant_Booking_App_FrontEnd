@@ -7,6 +7,7 @@ const RestaurantProfileComponent = ({restaurant}) => {
     
     const [person, setPerson] = useState(null); // null - more predictable than moulding container around data
     
+    
     const fetchPerson = async () => {
         const response = await fetch("https://dog.ceo/api/breeds/image/random");
         const jsonData = await response.json()

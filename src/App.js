@@ -1,22 +1,10 @@
 
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import BookingComponent from './components/BookingComponent';
-import BookingFormComponent from './components/BookingFormComponent';
-import ConfirmationComponent from './components/ConfirmationComponent';
 import CustomerComponent from './components/CustomerComponent';
-import RestaurantProfileComponent from './components/RestaurantProfileComponent';
-import TableComponent from './components/TableComponent';
-import PickTableComponent from './components/TableComponent';
-import TableListComponent from './components/TableListComponent';
-import TimeAndDatePickedComponent from './components/TimeAndDatePickedComponent';
 import RestaurantContainer from './containers/RestaurantContainer';
 import RestaurantComponent from './components/RestaurantComponent';
-
 import MapComponent from './components/MapComponent';
-
-import WalletComponent from './components/WalletComponent';
-import WalletList from './components/WalletListComponent';
 import WalletContainer from './containers/WalletContainer';
 import ConfirmationContainer from './containers/ConfirmationContainer';
 

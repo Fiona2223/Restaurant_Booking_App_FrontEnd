@@ -45,13 +45,12 @@ const RestaurantContainer = () => {
   
     return ( 
             <>
-            <div className="section">
-              <div className="align">
+            
               <CustomerComponent currentCustomer={currentCustomer} setCurrentCustomer={setCurrentCustomer}/>
               <MapComponent filterRestaurants={filterRestaurants}/>  
-              </div>    
+            
               <RestaurantProfileListComponent listOfRestaurants = {filteredRestaurants} />   
-              </div>
+             
              
             </>
             )
