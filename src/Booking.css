@@ -48,14 +48,14 @@
 
 .TimePicker{
     position: absolute;
-    top: 20%;
+    top: 25%;
     left: 60%;
     
 }
 
 .DayPicker{
     position: absolute;
-    top: 20%;
+    top: 25%;
     left: 80%;
 }
 
@@ -209,7 +209,7 @@ a:hover{
 
 #numberOfPeople{
     position: absolute;
-    top: 35%;
+    top: 38%;
     left: 25%;
     width: 250px;
     height: 20px;
@@ -244,7 +244,7 @@ a:hover{
 
 .People{
     position: absolute;
-    top: 33%;
+    top: 36%;
     left: 10%;
 
 }

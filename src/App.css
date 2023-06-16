@@ -65,6 +65,9 @@ body {
   font-size: medium;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 500px;
+  position: relative;
+  left: 80%;
+  top: 30%;
 }
 #enter-location-input-button {
   --color: #ee712b;
@@ -83,6 +86,7 @@ body {
   border-radius: 6px;
   font-weight: 500;
   color: var(--color);
+  left: 80%;
 }
 #enter-location-input-button:hover {
   color: #c25d26;
