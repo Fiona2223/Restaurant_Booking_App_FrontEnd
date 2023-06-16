@@ -7,9 +7,9 @@ const RestaurantComponent = ({}) => {
     const restaurant = useLoaderData();
 
     return ( <>
-            <div>
+            {/* <div>
                 <Link to="/">&#10094;Back</Link>
-            </div>
+            </div> */}
             <BookingFormComponent restaurant={restaurant}/>
             
     </> );

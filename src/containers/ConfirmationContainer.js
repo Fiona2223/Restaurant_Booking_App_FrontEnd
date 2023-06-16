@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ConfirmationComponent from "../components/ConfirmationComponent";
 import WalletComponent from "../components/WalletComponent";
 import { useLoaderData } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 const CUSTOMER_BOOKINGS_SERVER_URL = "http://localhost:8080/customer/1/bookings";
 
@@ -14,6 +15,7 @@ const ConfirmationContainer = () => {
 
     return ( <>
             <ConfirmationComponent currentCustomer={currentCustomer}/>
+            {/* <NavBar/> */}
     </> );
 }
  

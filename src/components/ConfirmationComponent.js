@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../Confirmation.css"
+import NavBar from "./NavBar";
 
 const CUSTOMER_BOOKINGS_SERVER_URL =
   "http://localhost:8080/customer/1/bookings";
@@ -35,6 +36,9 @@ const ConfirmationComponent = () => {
 
   return (
     <>
+        <div>
+            <NavBar/>
+        </div>
       {lastBookingObject ? (
         <div className="confirmation-component">
           <h2 className="confirmation-heading">

@@ -3,6 +3,7 @@ import ConfirmationComponent from "../components/ConfirmationComponent";
 import CustomerComponent from "../components/CustomerComponent";
 import RestaurantProfileListComponent from "../components/RestaurantProfileListComponent";
 import MapComponent from "../components/MapComponent"
+import NavBar from "../components/NavBar";
 
 const CUSTOMER_SERVER_URL = "http://localhost:8080/customer";
 
@@ -45,7 +46,7 @@ const RestaurantContainer = () => {
   
     return ( 
             <>
-            
+            <NavBar/>
               <CustomerComponent currentCustomer={currentCustomer} setCurrentCustomer={setCurrentCustomer}/>
               <MapComponent filterRestaurants={filterRestaurants}/>  
             

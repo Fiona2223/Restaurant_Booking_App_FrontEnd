@@ -7,6 +7,7 @@ import TimePicker from 'react-time-picker';
 import PickTableComponent from "./PickTableComponent";
 import "react-datepicker/dist/react-datepicker.css";
 import "../Booking.css";
+import NavBar from "./NavBar";
 
 const BookingFormComponent = ({restaurant}) => {
 
@@ -69,6 +70,10 @@ const BookingFormComponent = ({restaurant}) => {
       }
 
     return ( <>
+
+              <div>
+                <NavBar/>
+              </div>
 
 
                 <div className="Container">

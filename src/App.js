@@ -7,6 +7,7 @@ import RestaurantComponent from './components/RestaurantComponent';
 import MapComponent from './components/MapComponent';
 import WalletContainer from './containers/WalletContainer';
 import ConfirmationContainer from './containers/ConfirmationContainer';
+import NavBar from './components/NavBar';
 
 
 const SERVER_URL = "http://localhost:8080";
@@ -70,17 +71,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      {/* <RestaurantContainer/> */}
-      {/* <TimeAndDatePickedComponent/>
-      <TableListComponent/>
-      <TableComponent/>
-      <RestaurantProfileComponent/>
-      <PickTableComponent/>
-      <CustomerComponent/>
-      <ConfirmationComponent/>
-      <BookingFormComponent/>
-      <BookingComponent/> */}
+  
       <RouterProvider router={router}/>
+    
       
     
     </>

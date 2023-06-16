@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import WalletList from "../components/WalletListComponent";
 import {Link} from "react-router-dom"
+import NavBar from "../components/NavBar";
 const CUSTOMER_BOOKINGS_SERVER_URL = "http://localhost:8080/customer/1/bookings";
 
 const WalletContainer = () => {
@@ -19,7 +20,11 @@ const WalletContainer = () => {
 
     return (
         <>
-            <Link to="/">Go to homepage</Link>
+        <di>
+        <NavBar/>
+        </di>
+            
+            {/* <Link to="/">Go to homepage</Link> */}
             <div id="wallet-container">
             <WalletList customerBookings = {customerBookings}/>                
             </div>
