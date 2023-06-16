@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const RestaurantProfileComponent = ({restaurant}) => {
@@ -13,7 +13,8 @@ const RestaurantProfileComponent = ({restaurant}) => {
         const jsonData = await response.json()
         setPerson(jsonData)
     }
-
+    
+    
     useEffect(() =>{
         fetchPerson();
     }, []) 
@@ -26,15 +27,23 @@ const RestaurantProfileComponent = ({restaurant}) => {
         setMoreInfoButtonClicked(!moreInfoButtonClicked);
     }
 
+    let navigate = useNavigate();
+    
+    const handleRestaurantClick = ()=>{
+        navigate(`/restaurants/${restaurant.id}`)
+    }
+
     return ( <>
             
         <div id="restaurant-profile">
             <div id="more-info-container">
                 {!moreInfoButtonClicked ?
-                    (<Link to={`/restaurants/${restaurant.id}`} id="restaurant-name-location">
-                    {restaurant.name}, {restaurant.location}
-                    </Link>
-                    ) : 
+                <button onClick={handleRestaurantClick} id="restaurant-name-location">{restaurant.name}, {restaurant.location}</button>
+                    // (<Link to={`/restaurants/${restaurant.id}`} id="restaurant-name-location">
+                    // {restaurant.name}, {restaurant.location}
+                    // </Link>
+                    // ) 
+                    : 
                     (  <>
                         <div id="review">
                          {/* style="background-image: {dog.message}"  */}
@@ -43,7 +52,7 @@ const RestaurantProfileComponent = ({restaurant}) => {
                         </div>
                         </>
                     )}
-                <button id="moreRestaurantInfo" onClick={handleClick}> {">"} </button>
+                {/* <button id="moreRestaurantInfo" onClick={handleClick}> {">"} </button> */}
             </div>
         </div>    
   </>
