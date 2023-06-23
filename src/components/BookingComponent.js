@@ -5,5 +5,6 @@ const BookingComponent = () => {
     </> 
     );
 }
+// ..
  
 export default BookingComponent;
