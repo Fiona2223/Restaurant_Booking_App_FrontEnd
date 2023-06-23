@@ -76,5 +76,10 @@ To navigate between pages on the React app, we configured the following routes u
 ![componentDiagram](image.png)
 
 ## Challenges
+* Implementing date and time functionality: we struggled with changing the format of the time and date into a format that the back-end would accept. 
 
 ## Future
+* Adding restaurant address to the database for it to accessible by google map external api
+* We would scale by creating a restaurant server side to enable individual restaurant to added their restaurant to the database and access table bookings
+* User login and saving their personal contact details
+
