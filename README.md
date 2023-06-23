@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# A RESTAURANT BOOKING APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### <I>COLLABORATORS: </I>
+* Fiona Eshun (GitHub: `Fiona2223` )
+* Maryan Axmed (GitHub: `maryan-axmed`)
+* Sarah Abdulle (GitHub: `sarahabdulle1`)
+* Yasmin Haidar (GitHub: `Yasmin-H` )
+* Taliane Moussassa (GitHub: `TalianeM`)
 
-## Available Scripts
+### TABLE OF CONTENTS:
 
-In the project directory, you can run:
+* Project Overview
+* Project Aim
+* Technical Information
+* Installation Guide
+* Dependencies
+* Diagrams
+* The API
+* Challenges
+* Future
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### DIAGRAMS
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Component Diagram
+https://files.slack.com/files-pri/T036NTMRPCK-F05EMQHBD40/image.png
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Server Side API instructions
+The server side api can be found here:
+https://github.com/maryan-axmed/RestaurantBookingApp_BackEnd
 
-### `npm run build`
+* Software needed to run the API: 
+	* IntelliJ and Java (version 17)
+	* Postman
+	* Postico
+	* PostgreSQL
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Installation instructions:
+	* Git clone from the server side API Repo
+	* Create an SQL database  and name it `Restaurant_app` so that it matches with the name in the `application.properties` file (src of server side API)
+	* Once your database has been created, run the `` file in IntelliJ to get started.
+	* You can set up your tests using Postman on `localhost:8080/{extension}` or type in `localhost:8080/bookings` in your browser, for example, to see the  data. More details can be found from the backend repo
+	
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Client-side Instructions 
+The client-side server can be obtained with the following information:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Ensure that the following software	has been downloaded:
+   * Visual Studio Code
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Routes 
+To navigate between pages on the React app, we configured the following routes using the React Router:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
