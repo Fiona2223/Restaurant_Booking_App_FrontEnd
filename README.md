@@ -23,7 +23,6 @@
 ### DIAGRAMS
 
 ### Component Diagram
-https://files.slack.com/files-pri/T036NTMRPCK-F05EMQHBD40/image.png
 
 
 ### Server Side API instructions
