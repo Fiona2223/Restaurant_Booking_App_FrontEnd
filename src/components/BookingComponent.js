@@ -1,7 +1,7 @@
 const BookingComponent = () => {
     return ( 
     <>
-        <h2>Hello BookingComponent</h2>
+        <h2>Hello BookingComponent!</h2>
     </> 
     );
 }
